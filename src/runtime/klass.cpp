@@ -735,7 +735,8 @@ MirrorOop *MirrorKlass::new_mirror(Klass *mirrored_who, MirrorOop *loader) {
 }
 
 /*===---------------    ArrayKlass    --------------------===*/
-ArrayKlass::ArrayKlass(int dimension, ClassLoader *loader, Klass *lower_dimension, Klass *higher_dimension, MirrorOop *java_loader, ClassType classtype)  : dimension(dimension), loader(loader), lower_dimension(lower_dimension), higher_dimension(higher_dimension), java_loader(java_loader), Klass()/*, classtype(classtype)*/ {
+ArrayKlass::ArrayKlass(int dimension, ClassLoader *loader, Klass *lower_dimension, Klass *higher_dimension, MirrorOop *java_loader, ClassType classtype)  :
+		dimension(dimension), loader(loader), lower_dimension(lower_dimension), higher_dimension(higher_dimension), java_loader(java_loader), Klass()/*, classtype(classtype)*/ {
 	assert(dimension > 0);
 	this->classtype = classtype;
 	// set super class
@@ -785,7 +786,8 @@ ArrayOop* ArrayKlass::new_instance(int length)
 }
 
 /*===---------------  TypeArrayKlass  --------------------===*/
-TypeArrayKlass::TypeArrayKlass(Type type, int dimension, ClassLoader *loader, Klass *lower_dimension, Klass *higher_dimension, MirrorOop *java_loader, ClassType classtype) : type(type), ArrayKlass(dimension, loader, lower_dimension, higher_dimension, java_loader, classtype)
+TypeArrayKlass::TypeArrayKlass(Type type, int dimension, ClassLoader *loader, Klass *lower_dimension, Klass *higher_dimension, MirrorOop *java_loader, ClassType classtype) :
+		type(type), ArrayKlass(dimension, loader, lower_dimension, higher_dimension, java_loader, classtype)
 {	// B:byte C:char D:double F:float I:int J:long S:short Z:boolean s: String e:enum c:Class @:Annotation [:Array
 	// 1. get name
 	wstringstream ss;
@@ -838,7 +840,8 @@ TypeArrayKlass::TypeArrayKlass(Type type, int dimension, ClassLoader *loader, Kl
 	java_lang_class::if_Class_didnt_load_then_delay(this, java_loader);
 }
 
-ObjArrayKlass::ObjArrayKlass(InstanceKlass *element_klass, int dimension, ClassLoader *loader, Klass *lower_dimension, Klass *higher_dimension, MirrorOop *java_loader, ClassType classtype) : element_klass(element_klass), ArrayKlass(dimension, loader, lower_dimension, higher_dimension, java_loader, classtype)
+ObjArrayKlass::ObjArrayKlass(InstanceKlass *element_klass, int dimension, ClassLoader *loader, Klass *lower_dimension, Klass *higher_dimension, MirrorOop *java_loader, ClassType classtype) :
+		element_klass(element_klass), ArrayKlass(dimension, loader, lower_dimension, higher_dimension, java_loader, classtype)
 {
 	// 1. set name
 	wstringstream ss;
