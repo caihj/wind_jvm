@@ -14,7 +14,8 @@
 #include "utils/synchronize_wcout.hpp"
 
 /*===-------------- from hotspot -------------------*/
-static unordered_map<wstring, void*> methods = {
+static unordered_map<wstring, void*> methods ={
+	{L"registerNatives:()V",          (void*)&JVM_registerNatives0},
     {L"start0:()V",						(void *)&JVM_StartThread},
     {L"stop0:(" OBJ L")V",				(void *)&JVM_StopThread},
     {L"isAlive:()Z",						(void *)&JVM_IsThreadAlive},
@@ -32,6 +33,10 @@ static unordered_map<wstring, void*> methods = {
     {L"dumpThreads:([" THD L")[[" STE,	(void *)&JVM_DumpThreads},
     {L"setNativeName:(" STR L")V",		(void *)&JVM_SetNativeThreadName},
 };
+
+void JVM_registerNatives0(list<Oop *> & _stack){
+
+}
 
 void JVM_StartThread(list<Oop *> & _stack){
 	InstanceOop *_this = (InstanceOop *)_stack.front();	_stack.pop_front();

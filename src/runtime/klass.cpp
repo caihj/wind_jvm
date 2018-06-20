@@ -15,6 +15,8 @@
 #include <cstring>
 #include <sstream>
 #include <algorithm>
+#include <boost/bind.hpp>
+#include <native/native.hpp>
 
 using std::make_pair;
 using std::make_shared;
@@ -242,6 +244,19 @@ void InstanceKlass::parse_methods(ClassFile *cf)
 			iter->second = method;		// override parent's method
 		}
 
+		//link native method
+        wstring name = get_name() + L":" + method->get_name() + L":" + method->get_descriptor();
+        if(method->is_native()){
+            void * nativeMethod = find_native(get_name(),method->get_name() + L":" + method->get_descriptor());
+            if(nativeMethod == nullptr){
+                std::wcerr<<" native not found :"<<get_name() + L":" + method->get_name() + L":" + method->get_descriptor();
+                std::wcerr<<std::endl;
+                //assert(false);
+            }else {
+                method->setNative_method(boost::bind((void (*)(list<Oop *> &)) nativeMethod, _1));
+            }
+        }
+
 		ss.str(L"");		// make empty
 	}
 #ifdef KLASS_DEBUG
@@ -352,6 +367,7 @@ InstanceKlass::InstanceKlass(ClassFile *cf, ClassLoader *loader, MirrorOop *java
 	parse_interfaces(cf, loader);
 	// become Runtime methods
 	parse_methods(cf);
+
 	// become Runtime constant pool
 	parse_constantpool(cf, loader);
 	// become Runtime Attributes

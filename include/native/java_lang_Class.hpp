@@ -42,6 +42,8 @@ public:
 	static void if_Class_didnt_load_then_delay(Klass *klass, MirrorOop *loader_mirror);
 };
 
+
+void JVM_registerNatives1(list<Oop*> & _stack);
 void JVM_GetClassName(list<Oop *> & _stack);
 void JVM_ForClassName(list<Oop *> & _stack);
 void JVM_GetSuperClass(list<Oop *> & _stack);

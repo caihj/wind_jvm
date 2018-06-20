@@ -173,6 +173,7 @@ void java_lang_class::if_Class_didnt_load_then_delay(Klass *klass, MirrorOop *lo
 
 /*===----------------------- Natives ----------------------------===*/
 static unordered_map<wstring, void*> methods = {
+        {L"registerNatives:()V",          (void*)&JVM_registerNatives1},
     {L"getName0:()" STR,						(void *)&JVM_GetClassName},
     {L"forName0:(" STR L"Z" JCL CLS ")" CLS,	(void *)&JVM_ForClassName},
     {L"getSuperclass:()" CLS,				(void *)&JVM_GetSuperClass},
@@ -201,6 +202,10 @@ static unordered_map<wstring, void*> methods = {
     {L"getRawTypeAnnotations:()" BA,			(void *)&JVM_GetClassTypeAnnotations},
     {L"getPrimitiveClass:(" STR ")" CLS,		(void *)&JVM_GetPrimitiveClass},
 };
+
+void JVM_registerNatives1(list<Oop*> & _stack){
+
+}
 
 void JVM_GetClassName(list<Oop *> & _stack){
 	MirrorOop *_this = (MirrorOop *)_stack.front();	_stack.pop_front();

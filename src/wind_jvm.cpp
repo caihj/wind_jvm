@@ -206,7 +206,7 @@ void vm_thread::init_and_do_main()
 		java_lang_class::init();		// must init !!!
 		auto class_klass = BootStrapClassLoader::get_bootstrap().loadClass(L"java/lang/Class");
 		java_lang_class::fixup_mirrors();	// only [basic types] + java.lang.Class + java.lang.Object
-		java_lang_class::initObjectRegisterNative();
+		//java_lang_class::initObjectRegisterNative();
 
 		// load String.class
 		auto string_klass = ((InstanceKlass *)BootStrapClassLoader::get_bootstrap().loadClass(L"java/lang/String"));

@@ -23,7 +23,7 @@ enum ThreadPriority {        // JLS 20.20.1-3
                              // ensures that VMThread doesn't starve profiler
   CriticalPriority = 11      // Critical thread priority
 };
-
+void JVM_registerNatives0(list<Oop *> & _stack);
 void JVM_StartThread(list<Oop *> & _stack);
 void JVM_StopThread(list<Oop *> & _stack);
 void JVM_IsThreadAlive(list<Oop *> & _stack);

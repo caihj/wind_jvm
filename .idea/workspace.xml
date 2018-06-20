@@ -12,21 +12,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21aa1abd-b3d0-4199-8dbc-3a60b8f22673" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Test19.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test19.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/runtime/openjdkNative.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/runtime/openJdkNative.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test19.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test19.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/native/java_lang_Class.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/native/java_lang_Class.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/native/java_lang_Object.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/native/java_lang_Object.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/runtime/method.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/runtime/method.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/native/java_lang_Thread.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/native/java_lang_Thread.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/native/java_lang_Class.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/native/java_lang_Class.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/native/java_lang_Object.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/native/java_lang_Object.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/native/java_lang_Thread.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/native/java_lang_Thread.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/runtime/bytecodeEngine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/runtime/bytecodeEngine.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runtime/method.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/runtime/method.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runtime/klass.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/runtime/klass.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/wind_jvm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/wind_jvm.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -47,20 +42,20 @@
       <file leaf-file-name="wind_jvm.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/wind_jvm.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="217" selection-start-line="217" selection-end-line="217" />
-              <folding>
-                <element signature="e#15479#16200#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="88">
+              <caret line="254" column="130" selection-start-line="254" selection-start-column="115" selection-end-line="254" selection-end-column="130" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stl_list.h" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/5/bits/stl_list.h">
+      <file leaf-file-name="classloader.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/classloader.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="596" selection-start-line="596" selection-end-line="596" />
+            <state relative-caret-position="102">
+              <caret line="60" selection-start-line="60" selection-end-line="60" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,52 +63,58 @@
       <file leaf-file-name="bytecodeEngine.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/runtime/bytecodeEngine.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="710" column="21" selection-start-line="710" selection-start-column="21" selection-end-line="710" selection-end-column="21" />
+            <state relative-caret-position="163">
+              <caret line="741" selection-start-line="741" selection-end-line="741" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="klass.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runtime/klass.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="98">
+              <caret line="249" selection-start-line="249" selection-end-line="249" />
               <folding>
-                <element signature="e#20728#20787#0" expanded="true" />
+                <element signature="e#80#117#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="klass.hpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/runtime/klass.hpp">
+      <file leaf-file-name="wind_vm (disassembly)" pinned="false" current-in-tab="false">
+        <entry file="mock:///wind_vm (disassembly)">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="89" selection-start-line="89" selection-end-line="89" />
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="throw_exception.hpp" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/boost/throw_exception.hpp">
+      <file leaf-file-name="native.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/native/native.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="68" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="98">
+              <caret line="84" selection-start-line="84" selection-end-line="84" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="java_lang_Object.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="java_lang_Thread.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/native/java_lang_Thread.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-37">
+              <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="java_lang_Object.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/native/java_lang_Object.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="47" column="99" selection-start-line="47" selection-start-column="99" selection-end-line="47" selection-end-column="99" />
+            <state relative-caret-position="60">
+              <caret line="21" column="67" selection-start-line="21" selection-start-column="67" selection-end-line="21" selection-end-column="67" />
               <folding>
                 <element signature="e#92#130#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="method.hpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/runtime/method.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="102" column="42" selection-start-line="102" selection-start-column="42" selection-end-line="102" selection-end-column="42" />
-              <folding>
-                <element signature="e#47#64#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -122,30 +123,17 @@
       <file leaf-file-name="function_template.hpp" pinned="false" current-in-tab="false">
         <entry file="file:///usr/include/boost/function/function_template.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1575">
-              <caret column="18" selection-start-column="9" selection-end-column="18" />
+            <state relative-caret-position="80">
+              <caret line="769" selection-start-line="769" selection-end-line="769" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="function_base.hpp" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/boost/function/function_base.hpp">
+      <file leaf-file-name="throw_exception.hpp" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/include/boost/throw_exception.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="649" column="13" selection-start-line="649" selection-start-column="13" selection-end-line="649" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="java_lang_Class.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/native/java_lang_Class.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="117" selection-start-line="117" selection-end-line="117" />
-              <folding>
-                <element signature="e#91#128#0" expanded="true" />
-                <element signature="e#1761#3840#0" />
-              </folding>
+            <state relative-caret-position="123">
+              <caret line="68" selection-start-line="68" selection-end-line="68" />
             </state>
           </provider>
         </entry>
@@ -170,9 +158,14 @@
       <find>methods</find>
       <find>find_</find>
       <find>register</find>
-      <find>native_method</find>
       <find>function</find>
       <find>regi</find>
+      <find>invokeStat</find>
+      <find>native_method</find>
+      <find>find class method</find>
+      <find>native not found</find>
+      <find>sun/security/util/Debug</find>
+      <find>securityManager</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -182,7 +175,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/include/runtime/oop.hpp" />
-        <option value="$PROJECT_DIR$/src/runtime/klass.cpp" />
         <option value="$PROJECT_DIR$/Test.java" />
         <option value="$PROJECT_DIR$/include/utils/openjdkNative.hpp" />
         <option value="$PROJECT_DIR$/Test19.cpp" />
@@ -197,12 +189,16 @@
         <option value="$PROJECT_DIR$/include/native/java_lang_Object.hpp" />
         <option value="$PROJECT_DIR$/src/runtime/method.cpp" />
         <option value="$PROJECT_DIR$/include/runtime/method.hpp" />
-        <option value="$PROJECT_DIR$/include/native/java_lang_Class.hpp" />
-        <option value="$PROJECT_DIR$/src/wind_jvm.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/src/native/java_lang_Class.cpp" />
         <option value="$PROJECT_DIR$/src/runtime/bytecodeEngine.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/include/native/java_lang_Thread.hpp" />
+        <option value="$PROJECT_DIR$/include/native/java_lang_Class.hpp" />
+        <option value="$PROJECT_DIR$/src/native/java_lang_Class.cpp" />
+        <option value="$PROJECT_DIR$/src/native/java_lang_Thread.cpp" />
+        <option value="$PROJECT_DIR$/src/wind_jvm.cpp" />
+        <option value="$PROJECT_DIR$/include/runtime/klass.hpp" />
         <option value="$PROJECT_DIR$/src/native/java_lang_Object.cpp" />
+        <option value="$PROJECT_DIR$/src/runtime/klass.cpp" />
       </list>
     </option>
   </component>
@@ -227,7 +223,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -238,29 +233,6 @@
             <path>
               <item name="wind_jvm" type="b2602c69:ProjectViewProjectNode" />
               <item name="wind_jvm" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wind_jvm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wind_jvm" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="native" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wind_jvm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wind_jvm" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="runtime" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wind_jvm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wind_jvm" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wind_jvm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wind_jvm" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -274,17 +246,12 @@
               <item name="wind_jvm" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="runtime" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wind_jvm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wind_jvm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -338,27 +305,28 @@
       <workItem from="1529254141129" duration="18449000" />
       <workItem from="1529412424315" duration="574000" />
       <workItem from="1529413361434" duration="31242000" />
+      <workItem from="1529509764595" duration="5256000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76250000" />
+    <option name="totallyTimeSpent" value="81506000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12528823" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7891738" visible="true" weight="0.16833206" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.36295182" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.28463855" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.33283132" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32078314" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.2951807" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32991803" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.28614458" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36746988" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.46234939" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.35843372" />
+      <window_info id="Favorites" order="2" sideWeight="0.21082622" side_tool="true" visible="true" weight="0.16833206" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.47138554" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -378,40 +346,15 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/native/java_lang_Class.cpp</url>
-          <line>117</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/runtime/bytecodeEngine.cpp</url>
-          <line>569</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/wind_jvm.cpp</url>
-          <line>217</line>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/runtime/bytecodeEngine.cpp</url>
-          <line>389</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/runtime/bytecodeEngine.cpp</url>
-          <line>710</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/runtime/bytecodeEngine.cpp</url>
-          <line>721</line>
-          <option name="timeStamp" value="60" />
+          <line>292</line>
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="61" />
+      <option name="time" value="66" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -434,46 +377,13 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/include/asm-generic/socket.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/runtime/annotation.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/class_parser.hpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runtime/thread.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/jarLister.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/include/native/java_security_AccessController.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/native/java_security_AccessController.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -523,9 +433,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="103" column="24" lean-forward="true" selection-start-line="103" selection-start-column="24" selection-end-line="103" selection-end-column="24" />
-          <folding>
-            <element signature="e#5301#5350#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -608,26 +515,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/runtime/constantpool.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret line="91" column="30" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/class_parser.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/native/native.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="43" column="55" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -680,40 +573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classloader.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="33" column="5" selection-start-line="33" selection-end-line="33" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/native/java_lang_Class.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runtime/klass.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="577" selection-start-line="577" selection-end-line="577" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/runtime/openJdkNative.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -731,71 +590,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/boost/throw_exception.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/runtime/klass.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/c++/5/bits/stl_list.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="596" selection-start-line="596" selection-end-line="596" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/native/java_lang_Class.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="117" selection-start-line="117" selection-end-line="117" />
-          <folding>
-            <element signature="e#91#128#0" expanded="true" />
-            <element signature="e#1761#3840#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wind_jvm.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="217" selection-start-line="217" selection-end-line="217" />
-          <folding>
-            <element signature="e#15479#16200#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/boost/function/function_template.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1575">
-          <caret column="18" selection-start-column="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/runtime/method.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
+        <state relative-caret-position="1530">
           <caret line="102" column="42" selection-start-line="102" selection-start-column="42" selection-end-line="102" selection-end-column="42" />
           <folding>
             <element signature="e#47#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runtime/bytecodeEngine.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="710" column="21" selection-start-line="710" selection-start-column="21" selection-end-line="710" selection-end-column="21" />
-          <folding>
-            <element signature="e#20728#20787#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -807,13 +607,151 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runtime/constantpool.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="89" column="33" selection-start-line="89" selection-start-column="33" selection-end-line="89" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/runtime/bytecodeEngine.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="95" column="16" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/5/bits/stl_list.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="596" selection-start-line="596" selection-end-line="596" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/5/functional">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="2266" selection-start-line="2266" selection-end-line="2266" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/native/java_lang_Thread.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="25" selection-start-line="25" selection-end-line="25" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/native/java_lang_Class.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="45" column="47" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/native/java_security_AccessController.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/native/java_lang_Class.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="175" column="54" selection-start-line="175" selection-start-column="54" selection-end-line="175" selection-end-column="54" />
+          <folding>
+            <element signature="e#91#128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/runtime/klass.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="161" column="18" selection-start-line="161" selection-start-column="18" selection-end-line="161" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/boost/throw_exception.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/boost/function/function_template.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="769" selection-start-line="769" selection-end-line="769" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/native/java_lang_Object.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="47" column="99" selection-start-line="47" selection-start-column="99" selection-end-line="47" selection-end-column="99" />
+        <state relative-caret-position="60">
+          <caret line="21" column="67" selection-start-line="21" selection-start-column="67" selection-end-line="21" selection-end-column="67" />
           <folding>
             <element signature="e#92#130#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runtime/bytecodeEngine.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="741" selection-start-line="741" selection-end-line="741" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/native/java_lang_Thread.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-37">
+          <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classloader.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wind_jvm.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="254" column="130" selection-start-line="254" selection-start-column="115" selection-end-line="254" selection-end-column="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runtime/klass.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="249" selection-start-line="249" selection-end-line="249" />
+          <folding>
+            <element signature="e#80#117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/native/native.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
         </state>
       </provider>
     </entry>

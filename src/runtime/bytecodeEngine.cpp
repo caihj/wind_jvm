@@ -567,7 +567,7 @@ void BytecodeEngine::invokeVirtual(Method *new_method, stack<Oop *> & op_stack, 
 #endif
 		} else {
 			InstanceKlass *new_klass = new_method->get_klass();
-			const function<void(list<Oop *> &)> &native_method = new_method->getNative_method();
+			const function<void(list<Oop *> &)> &native_method = target_method->getNative_method();
 			// no need to add a stack frame!
 			if (native_method == nullptr) {
 				std::wcout << "You didn't write the [" << new_klass->get_name() << ":" << signature << "] native ";
