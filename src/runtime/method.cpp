@@ -398,5 +398,6 @@ Method::~Method() {
 
 	destructor(this->ad);
 	free(this->ad);
-
 }
+
+

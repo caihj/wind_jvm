@@ -1,13 +1,16 @@
 cmake_minimum_required(VERSION 3.5)
 project(wind_jvm)
 
-set(CMAKE_BUILD_TYPE "Debug")
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "-O0")
 
 include_directories(include)
 include_directories(include/native)
 include_directories(include/runtime)
 include_directories(include/utils)
+include_directories(/usr/lib/jvm/java-8-openjdk-amd64/include/)
+include_directories(/usr/lib/jvm/java-8-openjdk-amd64/include/linux/)
+
 
 add_executable(wind_vm
         include/native/java_io_FileDescriptor.hpp
@@ -107,5 +110,5 @@ add_executable(wind_vm
         src/jarLister.cpp
         src/main.cpp
         src/system_directory.cpp
-        src/wind_jvm.cpp)
+        src/wind_jvm.cpp include/runtime/openjdkNative.hpp Test19.cpp src/runtime/openJdkNative.cpp)
 target_link_libraries(wind_vm pthread boost_filesystem boost_system boost_regex)

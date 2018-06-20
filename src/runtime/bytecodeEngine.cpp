@@ -561,13 +561,13 @@ void BytecodeEngine::invokeVirtual(Method *new_method, stack<Oop *> & op_stack, 
 #endif
 	}
 	if (target_method->is_native()) {
-		if (new_method->get_name() == L"registerNatives" && new_method->get_descriptor() == L"()V") {
+		if ( false && new_method->get_name() == L"registerNatives" && new_method->get_descriptor() == L"()V") {
 #ifdef BYTECODE_DEBUG
 			sync_wcout{} << "jump off `registerNatives`." << std::endl;
 #endif
 		} else {
 			InstanceKlass *new_klass = new_method->get_klass();
-			void *native_method = find_native(new_klass->get_name(), signature);
+			const function<void(list<Oop *> &)> &native_method = new_method->getNative_method();
 			// no need to add a stack frame!
 			if (native_method == nullptr) {
 				std::wcout << "You didn't write the [" << new_klass->get_name() << ":" << signature << "] native ";
@@ -586,7 +586,7 @@ sync_wcout{} << "(DEBUG) invoke a [native] method: <class>: " << new_klass->get_
 			thread.vm_stack.push_back(StackFrame(new_method, pc, nullptr, arg_list, &thread, true));
 			pc = 0;
 			// execute !!
-			((void (*)(list<Oop *> &))native_method)(arg_list);
+			native_method(arg_list);
 			thread.vm_stack.pop_back();
 			pc = backup_pc;
 
@@ -708,7 +708,7 @@ void BytecodeEngine::invokeStatic(Method *new_method, stack<Oop *> & op_stack, v
 		}
 	}
 	if (new_method->is_native()) {
-		if (new_method->get_name() == L"registerNatives" && new_method->get_descriptor() == L"()V") {
+		if ( false && new_method->get_name() == L"registerNatives" && new_method->get_descriptor() == L"()V") {
 #ifdef BYTECODE_DEBUG
 			sync_wcout{} << "jump off `registerNatives`." << std::endl;
 #endif
@@ -719,7 +719,7 @@ sync_wcout{} << "(DEBUG) invoke a [native] method: <class>: " << new_klass->get_
 else if (*pc == 0xb8)
 sync_wcout{} << "(DEBUG) invoke a [native] method: <class>: " << new_klass->get_name() << "-->" << new_method->get_name() << ":"<< new_method->get_descriptor() << std::endl;
 #endif
-			void *native_method = find_native(new_klass->get_name(), signature);
+			const function<void(list<Oop *> &)> & native_method = new_method->getNative_method();
 			// no need to add a stack frame!
 			if (native_method == nullptr) {
 				std::wcout << "You didn't write the [" << new_klass->get_name() << ":" << signature << "] native ";
@@ -739,7 +739,7 @@ sync_wcout{} << "(DEBUG) invoke a [native] method: <class>: " << new_klass->get_
 			thread.vm_stack.push_back(StackFrame(new_method, pc, nullptr, arg_list, &thread, true));
 			pc = nullptr;
 			// execute !!
-			((void (*)(list<Oop *> &))native_method)(arg_list);
+			native_method(arg_list);
 			thread.vm_stack.pop_back();
 			pc = backup_pc;
 

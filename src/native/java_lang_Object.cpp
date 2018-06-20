@@ -9,16 +9,52 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <system_directory.hpp>
+#include <boost/bind.hpp>
 #include "native/native.hpp"
+#include "runtime/klass.hpp"
+#include <boost/bind.hpp>
+#include <list>
+
+using std::list;
 
 static unordered_map<wstring, void*> methods = {
+	//{L"registerNatives:()",         (void *)&JVM_RegisterNatives},
     {L"hashCode:()I",				(void *)&JVM_IHashCode},
     {L"wait:(J)V",					(void *)&JVM_MonitorWait},
     {L"notify:()V",					(void *)&JVM_MonitorNotify},
     {L"notifyAll:()V",				(void *)&JVM_MonitorNotifyAll},
     {L"clone:()" OBJ,				(void *)&JVM_Clone},
     {L"getClass:()" CLS,				(void *)&Java_java_lang_object_getClass},		// I add one line here.
+
 };
+
+void JVM_RegisterNatives(list<Oop *> & _stack){
+
+	for(auto kv:system_classmap){
+		Klass * kclass = kv.second;
+		InstanceKlass *instanceKlass = dynamic_cast<InstanceKlass *>(kclass);
+		if(instanceKlass!=nullptr){
+			for(auto ite:instanceKlass->get_declared_methods()){
+				Method * method = ite.second;
+				wstring name = instanceKlass->get_name() + L":" + method->get_name() + L":" + method->get_descriptor();
+				if(method->is_native() && name != L"java/lang/Object:registerNatives:()V"){
+					void * nativeMethod = find_native(instanceKlass->get_name(),method->get_name() + L":" + method->get_descriptor());
+					if(nativeMethod == nullptr){
+						std::wcerr<<" native not found :"<<instanceKlass->get_name() + L":" + method->get_name() + L":" + method->get_descriptor();
+						std::wcerr<<std::endl;
+						assert(false);
+					}
+					method->setNative_method(boost::bind((void (*)(list<Oop *> &))nativeMethod,_1));
+				}
+			}
+		}
+	}
+
+#ifdef OBJECT_DEUBG
+	std::wcout<<"JVM_RegisterNatives()"<<std::endl;
+#endif
+}
 
 void JVM_IHashCode(list<Oop *> & _stack){
 	InstanceOop *_this = (InstanceOop *)_stack.front();	_stack.pop_front();

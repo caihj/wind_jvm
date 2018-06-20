@@ -14,6 +14,8 @@
 #include "wind_jvm.hpp"
 #include <regex>
 #include "utils/synchronize_wcout.hpp"
+#include <boost/bind.hpp>
+#include <native/java_lang_Object.hpp>
 
 /*===--------------------- java_lang_class ----------------------===*/
 java_lang_class::mirror_state & java_lang_class::state() {
@@ -104,6 +106,19 @@ void java_lang_class::fixup_mirrors() {	// must execute this after java.lang.Cla
 		}
 	}
 }
+
+void java_lang_class::initObjectRegisterNative(){
+
+	Klass *_objectKclass = BootStrapClassLoader::get_bootstrap().loadClass(L"java/lang/Object");
+
+	InstanceKlass *instanceKlass = dynamic_cast<InstanceKlass *>(_objectKclass);
+	assert(instanceKlass != nullptr);
+	Method * method = instanceKlass->get_this_class_method(L"registerNatives:()V");
+	assert(method != nullptr);
+	method->setNative_method(boost::bind(JVM_RegisterNatives,_1));
+
+}
+
 
 MirrorOop *java_lang_class::get_basic_type_mirror(const wstring & signature) {	// "I", "Z", "D", "J" ......	// must execute this after `fixup_mirrors()` called !!
 	assert(state() == Fixed);

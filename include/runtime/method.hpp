@@ -10,6 +10,7 @@
 #include "annotation.hpp"
 #include "utils/synchronize_wcout.hpp"
 #include <list>
+#include <boost/function.hpp>
 #include "utils/lock.hpp"
 
 using std::wstring;
@@ -17,6 +18,7 @@ using std::unordered_map;
 using std::list;
 
 class MirrorOop;
+class Oop;
 class InstanceKlass;
 class Method;
 
@@ -78,6 +80,9 @@ private:
 	Element_value *ad = nullptr;					// [1]
 	CodeStub _ad;
 
+	//for native method
+	boost::function<void (list<Oop *> & stacks)> native_method;
+
 public:
 	bool is_static() { return (this->access_flags & ACC_STATIC) == ACC_STATIC; }
 	bool is_public() { return (this->access_flags & ACC_PUBLIC) == ACC_PUBLIC; }
@@ -90,6 +95,14 @@ public:
 	bool is_synchronized() { return (this->access_flags & ACC_SYNCHRONIZED) == ACC_SYNCHRONIZED; }
 	wstring return_type() { return return_type(this->descriptor); }
 	u2 get_flag() { return access_flags; }
+
+	const boost::function<void(list<Oop *> &)> &getNative_method() const {
+		return native_method;
+	}
+
+	void setNative_method(const boost::function<void(list<Oop *> &)> &native_method) {
+		Method::native_method = native_method;
+	}
 public:
 	static wstring return_type(const wstring & descriptor) { return descriptor.substr(descriptor.find_first_of(L")")+1); }
 	static vector<MirrorOop *> parse_argument_list(const wstring & descriptor);

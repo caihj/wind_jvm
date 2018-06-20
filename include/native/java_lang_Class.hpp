@@ -37,6 +37,7 @@ public:
 	static unordered_map<wstring, MirrorOop*> & get_single_basic_type_mirrors();
 	static void init();		// must execute this method before jvm!!!
 	static void fixup_mirrors();	// must execute this after java.lang.Class load!!!
+	static void initObjectRegisterNative();
 	static MirrorOop *get_basic_type_mirror(const wstring & signature);	// "I", "Z", "D", "J" ......	// must execute this after `fixup_mirrors()` called !!
 	static void if_Class_didnt_load_then_delay(Klass *klass, MirrorOop *loader_mirror);
 };

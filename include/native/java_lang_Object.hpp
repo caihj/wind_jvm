@@ -13,6 +13,7 @@
 
 using std::list;
 
+void JVM_RegisterNatives(list<Oop *> & _stack);
 void JVM_IHashCode(list<Oop *> & _stack);
 void JVM_MonitorWait(list<Oop *> & _stack);
 void JVM_MonitorNotify(list<Oop *> & _stack);
