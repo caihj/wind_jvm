@@ -255,8 +255,6 @@ void InstanceKlass::parse_methods(ClassFile *cf)
                 if(method->get_name()==L"registerNatives"){
                     method->setNative_method([](list<Oop *> &)-> void {});
                 }
-                std::wcerr<<std::endl;
-                //assert(false);
             }else {
                 method->setNative_method(boost::bind((void (*)(list<Oop *> &)) nativeMethod, _1));
             }

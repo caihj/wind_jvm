@@ -447,6 +447,33 @@ src/native/java_lang_ClassLoader.cpp.s:
 	$(MAKE) -f CMakeFiles/wind_vm.dir/build.make CMakeFiles/wind_vm.dir/src/native/java_lang_ClassLoader.cpp.s
 .PHONY : src/native/java_lang_ClassLoader.cpp.s
 
+src/native/java_lang_ClassLoader_nativeLibrary.o: src/native/java_lang_ClassLoader_nativeLibrary.cpp.o
+
+.PHONY : src/native/java_lang_ClassLoader_nativeLibrary.o
+
+# target to build an object file
+src/native/java_lang_ClassLoader_nativeLibrary.cpp.o:
+	$(MAKE) -f CMakeFiles/wind_vm.dir/build.make CMakeFiles/wind_vm.dir/src/native/java_lang_ClassLoader_nativeLibrary.cpp.o
+.PHONY : src/native/java_lang_ClassLoader_nativeLibrary.cpp.o
+
+src/native/java_lang_ClassLoader_nativeLibrary.i: src/native/java_lang_ClassLoader_nativeLibrary.cpp.i
+
+.PHONY : src/native/java_lang_ClassLoader_nativeLibrary.i
+
+# target to preprocess a source file
+src/native/java_lang_ClassLoader_nativeLibrary.cpp.i:
+	$(MAKE) -f CMakeFiles/wind_vm.dir/build.make CMakeFiles/wind_vm.dir/src/native/java_lang_ClassLoader_nativeLibrary.cpp.i
+.PHONY : src/native/java_lang_ClassLoader_nativeLibrary.cpp.i
+
+src/native/java_lang_ClassLoader_nativeLibrary.s: src/native/java_lang_ClassLoader_nativeLibrary.cpp.s
+
+.PHONY : src/native/java_lang_ClassLoader_nativeLibrary.s
+
+# target to generate assembly for a file
+src/native/java_lang_ClassLoader_nativeLibrary.cpp.s:
+	$(MAKE) -f CMakeFiles/wind_vm.dir/build.make CMakeFiles/wind_vm.dir/src/native/java_lang_ClassLoader_nativeLibrary.cpp.s
+.PHONY : src/native/java_lang_ClassLoader_nativeLibrary.cpp.s
+
 src/native/java_lang_Double.o: src/native/java_lang_Double.cpp.o
 
 .PHONY : src/native/java_lang_Double.o
@@ -1545,6 +1572,9 @@ help:
 	@echo "... src/native/java_lang_ClassLoader.o"
 	@echo "... src/native/java_lang_ClassLoader.i"
 	@echo "... src/native/java_lang_ClassLoader.s"
+	@echo "... src/native/java_lang_ClassLoader_nativeLibrary.o"
+	@echo "... src/native/java_lang_ClassLoader_nativeLibrary.i"
+	@echo "... src/native/java_lang_ClassLoader_nativeLibrary.s"
 	@echo "... src/native/java_lang_Double.o"
 	@echo "... src/native/java_lang_Double.i"
 	@echo "... src/native/java_lang_Double.s"
