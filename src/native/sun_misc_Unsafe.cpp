@@ -37,8 +37,12 @@ static unordered_map<wstring, void*> methods = {
     {L"staticFieldOffset:(" FLD ")J",						(void *)&JVM_StaticFieldOffset},
     {L"staticFieldBase:(" FLD ")" OBJ,						(void *)&JVM_StaticFieldBase},
     {L"putObject:(" OBJ "J" OBJ ")V",						(void *)&JVM_PutObject},
+	{L"registerNatives():V",(void *)&JVM_registerNatives3}
 };
 
+void JVM_registerNatives3(list<Oop *> & _stack){
+
+}
 void JVM_ArrayBaseOffset(list<Oop *> & _stack){
 	InstanceOop *_this = (InstanceOop *)_stack.front();	_stack.pop_front();
 	ArrayOop *_array = (ArrayOop *)_stack.front();	_stack.pop_front();

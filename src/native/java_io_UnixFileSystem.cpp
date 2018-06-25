@@ -15,11 +15,13 @@
 #include <boost/filesystem.hpp>
 #include "utils/utils.hpp"
 #include <sys/stat.h>
+#include <native/java_io_FileSystem.hpp>
 
 static unordered_map<wstring, void*> methods = {
     {L"initIDs:()V",								(void *)&JVM_UFS_InitIDs},
     {L"canonicalize0:(" STR ")" STR,				(void *)&JVM_Canonicalize0},
     {L"getBooleanAttributes0:(" FLE ")I",			(void *)&JVM_GetBooleanAttributes0},
+	{L"getLength:(" FLE ")J",(void *)&JVM_GetLength},
 };
 
 void JVM_UFS_InitIDs(list<Oop *> & _stack){		// static

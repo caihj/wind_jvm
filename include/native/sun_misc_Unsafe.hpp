@@ -12,7 +12,7 @@
 #include <list>
 
 using std::list;
-
+void JVM_registerNatives3(list<Oop *> & _stack);
 void JVM_ArrayBaseOffset(list<Oop *> & _stack);
 void JVM_ArrayIndexScale(list<Oop *> & _stack);
 void JVM_AddressSize(list<Oop *> & _stack);

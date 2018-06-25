@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 project(wind_jvm)
 
-add_definitions("-DDEBUG")
+#add_definitions("-DDEBUG")
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS "-O0")
 

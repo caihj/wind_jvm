@@ -249,7 +249,12 @@ void InstanceKlass::parse_methods(ClassFile *cf)
         if(method->is_native()){
             void * nativeMethod = find_native(get_name(),method->get_name() + L":" + method->get_descriptor());
             if(nativeMethod == nullptr){
+#ifdef  DEBUG
                 std::wcerr<<" native not found :"<<get_name() + L":" + method->get_name() + L":" + method->get_descriptor();
+#endif
+                if(method->get_name()==L"registerNatives"){
+                    method->setNative_method([](list<Oop *> &)-> void {});
+                }
                 std::wcerr<<std::endl;
                 //assert(false);
             }else {
