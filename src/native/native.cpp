@@ -73,7 +73,7 @@ void init_native()		// the same as "registerNatives" method.
 	native_map[L"java/lang/invoke/MethodHandle"] = java_lang_invoke_methodHandle_search_method;
 	native_map[L"sun/reflect/NativeMethodAccessorImpl"] = sun_reflect_nativeMethodAccessorImpl_search_method;
 	native_map[L"java/lang/Shutdown"] = java_lang_shutdown_search_method;
-	native_map[L"java/lang/ClassLoader/NativeLibrary"] = java_lang_classLoader_nativeLibrary_search_method;
+	native_map[L"java/lang/ClassLoader$NativeLibrary"] = java_lang_classLoader_nativeLibrary_search_method;
 }
 
 // find a native method <$signature> in a klass <$klass_name>, return the method in (void *). if didn't find, abort().

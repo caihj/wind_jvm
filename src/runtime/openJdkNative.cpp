@@ -9,6 +9,10 @@
 #include "runtime/openjdkNative.hpp"
 #include "native/java_lang_String.hpp"
 #include <ffi.h>
+#include <system_directory.hpp>
+#include <dlfcn.h>
+#include <regex>
+
 /*
 
 
@@ -62,6 +66,46 @@ void invoke_jni_func(const wstring & signature,void * func,list<Oop *> & stacks)
 
 }
 */
+
+bool loadNativeLib(std::wstring name){
+
+    std::string libname = wstring_to_utf8(name);
+
+    void *handle = dlopen(libname.c_str(),RTLD_LAZY);
+    if(handle == nullptr){
+        return false;
+    }
+
+    {
+        LockGuard l(Method_Pool::method_pool_lock());
+        for (Method *method: Method_Pool::method_pool()) {
+            if(method->is_native() && method->getNative_method().empty()){
+                std::wcerr <<L"emtpy method "<< method->get_klass()->get_name()<<L":"<< method->get_name()<<std::endl;
+
+                std::wcerr <<L"descriptor: "<<method->get_descriptor()<<std::endl;
+
+                wstring funcName = L"Java_" + std::regex_replace(method->get_klass()->get_name(), std::wregex(L"/"), L"_") + L"_" + method->get_name();
+                std::wcerr << "funcName:" << funcName << std::endl;
+
+                void *funcPtr = dlsym(handle,wstring_to_utf8(funcName).c_str());
+                if(funcPtr != nullptr){
+                    std::wcerr <<  funcName << L" found!!!" <<  std::endl;
+
+                    method->setNative_method([]{
+
+
+
+
+
+                    });
+                }
+            }
+        }
+    }
+
+
+};
+
 
 jstring  NewStringUTF(JNIEnv *env,const char *utf){
 

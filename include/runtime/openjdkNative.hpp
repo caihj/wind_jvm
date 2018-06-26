@@ -10,6 +10,7 @@
 #include <string>
 #include <list>
 #include <map>
+
 class Oop;
 
 /*
@@ -33,5 +34,10 @@ public:
 
 void invoke_jni_func(const wstring & signature,void * func,list<Oop *> & stacks);
 */
+
+/*
+ * return true if succ
+ */
+bool loadNativeLib(std::wstring name);
 
 #endif //WIND_JVM_OPENJDKNATIVE_HPP

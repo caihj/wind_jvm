@@ -673,9 +673,9 @@ void BytecodeEngine::invokeStatic(Method *new_method, stack<Oop *> & op_stack, v
 		size --;
 	}
 
-	// ban the `System.loadLibrary` method.
-	if (new_method->get_klass()->get_name() == L"java/lang/System" && new_method->get_name() == L"loadLibrary")
-		return;
+//	// ban the `System.loadLibrary` method.
+//	if (new_method->get_klass()->get_name() == L"java/lang/System" && new_method->get_name() == L"loadLibrary")
+//		return;
 	// ban the `Perf` class.
 	if (new_method->get_klass()->get_name() == L"sun/misc/Perf" || new_method->get_klass()->get_name() == L"sun/misc/PerfCounter") {
 		if (new_method->is_void()) {
@@ -738,6 +738,20 @@ sync_wcout{} << "(DEBUG) invoke a [native] method: <class>: " << new_klass->get_
 			uint8_t *backup_pc = pc;
 			thread.vm_stack.push_back(StackFrame(new_method, pc, nullptr, arg_list, &thread, true));
 			pc = nullptr;
+
+
+#ifdef DEBUG
+			int idx=0;
+			for(auto arg:arg_list){
+
+				if(arg!= nullptr && arg->get_klass() != nullptr && arg->get_klass() == system_classmap[L"java/lang/String.class"]){
+					sync_wcout{} <<" call arg [String]:"<< idx++ << ":" <<java_lang_string::stringOop_to_wstring(dynamic_cast<InstanceOop *>(arg))<< std::endl;
+				}else{
+					sync_wcout{} <<" call arg :"<< idx++ << ":" << arg << std::endl;
+				}
+			}
+#endif
+
 			// execute !!
 			native_method(arg_list);
 			thread.vm_stack.pop_back();

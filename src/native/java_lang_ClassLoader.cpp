@@ -21,6 +21,7 @@ static unordered_map<wstring, void*> methods = {
     {L"findLoadedClass0:(" STR ")" CLS,				(void *)&JVM_FindLoadedClass},
     {L"findBootstrapClass:(" STR ")" CLS,				(void *)&JVM_FindBootStrapClass},
     {L"defineClass1:(" STR "[BII" PD STR ")" CLS,		(void *)&JVM_DefineClass1},
+	{L"findBuiltinLib:(" STR ")" STR ,(void *)&JVM_findBuiltinLib}
 };
 
 void JVM_FindLoadedClass(list<Oop *> & _stack){
@@ -113,6 +114,15 @@ void JVM_DefineClass1(list<Oop *> & _stack){
 #endif
 }
 
+
+void JVM_findBuiltinLib(list<Oop *> & _stack){
+
+    InstanceOop *name = (InstanceOop *)_stack.front();	_stack.pop_front();
+#ifdef DEBUG
+    sync_wcout{} << L" JVM_findBuiltinLib name :" << java_lang_string::stringOop_to_wstring(name) << std::endl;
+#endif
+    _stack.push_back(name);
+}
 
 void *java_lang_classLoader_search_method(const wstring & signature)
 {

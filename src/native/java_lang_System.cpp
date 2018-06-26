@@ -214,7 +214,10 @@ void JVM_InitProperties(list<Oop *> & _stack){		// static
 }
 void JVM_MapLibraryName(list<Oop *> & _stack){		// static
 	InstanceOop *str = (InstanceOop *)_stack.front();	_stack.pop_front();
-	assert(false);
+	//just for linux
+	wstring libName = L"lib"+ java_lang_string::stringOop_to_wstring(str) + L".so";
+	_stack.push_back(java_lang_string::intern(libName));
+
 }
 void JVM_SetIn0(list<Oop *> & _stack){		// static
 	InstanceOop *inputstream = (InstanceOop *)_stack.front();	_stack.pop_front();

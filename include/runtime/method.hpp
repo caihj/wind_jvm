@@ -23,6 +23,7 @@ class InstanceKlass;
 class Method;
 
 class Method_Pool {
+	friend bool loadNativeLib(std::wstring name);
 private:
 	static Lock & method_pool_lock();
 private:

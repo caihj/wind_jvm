@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 project(wind_jvm)
 
 #add_definitions("-DDEBUG")
+#add_definitions("-DBYTECODE_DEBUG")
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS "-O0")
 
@@ -112,4 +113,5 @@ add_executable(wind_vm
         src/main.cpp
         src/system_directory.cpp
         src/wind_jvm.cpp include/runtime/openjdkNative.hpp Test19.cpp src/runtime/openJdkNative.cpp include/native/java_lang_ClassLoader_NativeLibrary.hpp src/native/java_lang_ClassLoader_nativeLibrary.cpp)
-target_link_libraries(wind_vm pthread boost_filesystem boost_system boost_regex)
+
+target_link_libraries(wind_vm pthread boost_filesystem boost_system boost_regex dl)
