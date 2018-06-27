@@ -166,7 +166,6 @@ void initNativeInterface() {
 
 jstring NewStringUTF(JNIEnv *env, const char *utf) {
 
-    std::wcout << L"NewStringUTF called" << std::endl;
 
     wstring ws = utf8_to_wstring(std::string(utf));
 
