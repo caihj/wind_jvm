@@ -43,6 +43,14 @@ extern struct JNINativeInterface_ nativeInterface;
 
 bool loadNativeLib(std::wstring name);
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 jstring  NewStringUTF(JNIEnv *env,const char *utf);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //WIND_JVM_OPENJDKNATIVE_HPP
