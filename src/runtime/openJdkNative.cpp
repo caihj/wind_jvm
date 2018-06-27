@@ -91,11 +91,44 @@ bool loadNativeLib(std::wstring name){
                 if(funcPtr != nullptr){
                     std::wcerr <<  funcName << L" found!!!" <<  std::endl;
 
-                    method->setNative_method([]{
+                    int argCount = method->parse_argument_list().size();
 
+                    //for env and this
+                    argCount +=2;
 
+                    method->setNative_method([argCount,funcPtr](list<Oop *> &_stack)-> void{
 
+                        ffi_type **ffiArgTypes = static_cast<ffi_type **>(alloca(sizeof(ffi_type *) *argCount));
+                        for(int i = 0 ;i < argCount; i++){
+                            ffiArgTypes[i] = &ffi_type_pointer;
+                        }
 
+                        void **ffiArgs =  static_cast<void **>(alloca(sizeof(void *) *argCount));
+
+                        //env
+                        ffiArgs[0] = nullptr ;
+                        for(int i = 1 ;i < argCount; i++){
+                            ffiArgs[i] = _stack.front(); _stack.pop_front();
+                        }
+
+                        ffi_cif cif;
+                        ffi_type *returnFfiType = &ffi_type_pointer;
+
+                        ffi_status ffiPrepStatus = ffi_prep_cif(&cif, FFI_DEFAULT_ABI, (unsigned int)argCount, returnFfiType, ffiArgTypes);
+
+                        if (ffiPrepStatus == FFI_OK) {
+                            //生成用于保存返回值的内存
+                            void *returnPtr = NULL;
+                            if (returnFfiType->size) {
+                                returnPtr = alloca(returnFfiType->size);
+                            }
+                            //根据cif函数原型，函数指针，返回值内存指针，函数参数数据调用这个函数
+                            ffi_call(&cif, reinterpret_cast<void (*)(void)>(funcPtr), returnPtr, ffiArgs);
+
+                            //拿到返回值
+                            void * returnValue = (void *)returnPtr;
+                            _stack.push_back(static_cast<Oop *>(returnValue));
+                        }
 
                     });
                 }
