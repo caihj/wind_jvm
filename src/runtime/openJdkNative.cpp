@@ -106,7 +106,7 @@ bool loadNativeLib(std::wstring name){
                         void **ffiArgs =  static_cast<void **>(alloca(sizeof(void *) *argCount));
 
                         //env
-                        ffiArgs[0] = nullptr ;
+                        ffiArgs[0] = &nativeInterface ;
                         for(int i = 1 ;i < argCount; i++){
                             ffiArgs[i] = _stack.front(); _stack.pop_front();
                         }
@@ -138,6 +138,13 @@ bool loadNativeLib(std::wstring name){
 
 
 };
+
+
+struct JNINativeInterface_ nativeInterface;
+
+void initNativeInterface(){
+    nativeInterface.NewStringUTF = &NewStringUTF;
+}
 
 
 jstring  NewStringUTF(JNIEnv *env,const char *utf){

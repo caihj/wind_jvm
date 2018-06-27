@@ -12,11 +12,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21aa1abd-b3d0-4199-8dbc-3a60b8f22673" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/runtime/openjdkNative.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/runtime/openjdkNative.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/runtime/openJdkNative.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/runtime/openJdkNative.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <ignored path="$PROJECT_DIR$/CMakeFiles/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,15 +27,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="java_lang_Object.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/native/java_lang_Object.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="java_lang_invoke_MethodHandleNatives.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/native/java_lang_invoke_MethodHandleNatives.cpp">
           <provider selected="true" editor-type-id="text-editor" />
@@ -44,57 +35,67 @@
       <file leaf-file-name="openJdkNative.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/runtime/openJdkNative.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="125" selection-start-line="125" selection-end-line="125" />
+            <state relative-caret-position="175">
+              <caret line="147" selection-start-line="147" selection-end-line="147" />
               <folding>
                 <element signature="e#42#60#0" expanded="true" />
-                <element signature="e#210#1498#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="function_template.hpp" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/boost/function/function_template.hpp">
+      <file leaf-file-name="openjdkNative.hpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/runtime/openjdkNative.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="772" selection-start-line="772" selection-end-line="772" />
+            <state relative-caret-position="459">
+              <caret line="41" column="7" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
+              <folding>
+                <element signature="e#113#128#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functional" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/5/functional">
+      <file leaf-file-name="jni.h" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/lib/jvm/java-8-openjdk-amd64/include/jni.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="1870" selection-start-line="1870" selection-end-line="1870" />
+            <state relative-caret-position="460">
+              <caret line="1958" lean-forward="true" selection-start-line="1958" selection-end-line="1958" />
+              <folding>
+                <element signature="e#1658#1676#0" expanded="true" />
+                <element signature="e#3113#3516#0" expanded="true" />
+                <element signature="e#5111#5160#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stl_list.h" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/c++/5/bits/stl_list.h">
+      <file leaf-file-name="Test19.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Test19.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="1092" column="6" selection-start-line="1092" selection-start-column="6" selection-end-line="1092" selection-end-column="6" />
+            <state relative-caret-position="135">
+              <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wind_jvm.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/wind_jvm.cpp">
+      <file leaf-file-name="jni_md.h" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/lib/jvm/java-8-openjdk-amd64/include/linux/jni_md.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="336" selection-start-line="336" selection-end-line="336" />
-            </state>
+            <state relative-caret-position="-231" />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ffi.h" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/x86_64-linux-gnu/ffi.h">
+      <file leaf-file-name="annotation.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runtime/annotation.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="bytecodeEngine.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/runtime/bytecodeEngine.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="445" column="5" selection-start-line="445" selection-start-column="5" selection-end-line="445" selection-end-column="5" />
+            <state relative-caret-position="579">
+              <caret line="738" column="25" selection-start-line="738" selection-start-column="25" selection-end-line="738" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -103,7 +104,16 @@
         <entry file="file://$PROJECT_DIR$/Test19.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+              <caret line="15" column="6" lean-forward="true" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="function_template.hpp" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/include/boost/function/function_template.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="11580">
+              <caret line="772" selection-start-line="772" selection-end-line="772" />
             </state>
           </provider>
         </entry>
@@ -126,6 +136,7 @@
       <find>std::ce</find>
       <find>signature</find>
       <find>arg_list</find>
+      <find>JNINativeInterface_</find>
     </findStrings>
     <replaceStrings>
       <replace>std::wce</replace>
@@ -145,10 +156,10 @@
         <option value="$PROJECT_DIR$/src/runtime/bytecodeEngine.cpp" />
         <option value="$PROJECT_DIR$/src/native/java_lang_ClassLoader.cpp" />
         <option value="$PROJECT_DIR$/src/native/java_lang_ClassLoader_nativeLibrary.cpp" />
-        <option value="$PROJECT_DIR$/include/runtime/openjdkNative.hpp" />
         <option value="$PROJECT_DIR$/include/runtime/method.hpp" />
         <option value="$PROJECT_DIR$/Test19.java" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/include/runtime/openjdkNative.hpp" />
         <option value="$PROJECT_DIR$/src/runtime/openJdkNative.cpp" />
       </list>
     </option>
@@ -174,6 +185,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -184,13 +196,17 @@
             <path>
               <item name="wind_jvm" type="b2602c69:ProjectViewProjectNode" />
               <item name="wind_jvm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wind_jvm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wind_jvm" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wind_jvm" type="b2602c69:ProjectViewProjectNode" />
               <item name="wind_jvm" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="native" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wind_jvm" type="b2602c69:ProjectViewProjectNode" />
@@ -202,7 +218,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
@@ -257,6 +272,7 @@
       <workItem from="1529938639241" duration="1399000" />
       <workItem from="1529940061119" duration="73000" />
       <workItem from="1530011633685" duration="8099000" />
+      <workItem from="1530112589139" duration="1227000" />
     </task>
     <task id="LOCAL-00001" summary="implement native method">
       <created>1530017447303</created>
@@ -269,22 +285,21 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26107000" />
+    <option name="totallyTimeSpent" value="27334000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
+    <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15757109" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.30942622" />
-      <window_info anchor="bottom" id="CMake" order="7" weight="0.3329918" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32991803" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.3554217" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.3329918" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32991803" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.30840164" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.59016395" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16765499" />
-      <window_info anchor="right" id="LuaJ" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.28586066" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.59016395" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39241803" />
       <window_info id="Designer" order="3" />
@@ -296,8 +311,10 @@
       <window_info id="UI Designer" order="3" />
       <window_info id="Capture Tool" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="LuaJ" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.28586066" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -324,11 +341,6 @@
           <line>336</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/runtime/openJdkNative.cpp</url>
-          <line>116</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
       </breakpoints>
       <option name="time" value="53" />
     </breakpoint-manager>
@@ -343,19 +355,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/include/runtime/constantpool.hpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runtime/field.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runtime/gc.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4875">
-          <caret line="325" selection-start-line="325" selection-end-line="325" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Test18.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -470,16 +469,6 @@
     <entry file="file://$PROJECT_DIR$/include/runtime/thread.hpp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/runtime/openjdkNative.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="40" selection-start-line="40" selection-end-line="40" selection-end-column="38" />
-          <folding>
-            <element signature="e#113#128#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/c++/5/bits/stl_pair.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
@@ -557,13 +546,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test19.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/native/java_lang_Class.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -588,13 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/runtime/bytecodeEngine.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1468">
-          <caret line="738" column="25" selection-start-line="738" selection-start-column="25" selection-end-line="738" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/native/java_lang_Double.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -616,65 +591,108 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/native/java_lang_invoke_MethodHandleNatives.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test19.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/native/java_lang_Object.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
+        <state relative-caret-position="600">
           <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file:///usr/include/x86_64-linux-gnu/ffi.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
+        <state relative-caret-position="6675">
           <caret line="445" column="5" selection-start-line="445" selection-start-column="5" selection-end-line="445" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file:///usr/include/c++/5/bits/stl_list.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="16380">
           <caret line="1092" column="6" selection-start-line="1092" selection-start-column="6" selection-end-line="1092" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file:///usr/include/c++/5/functional">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
+        <state relative-caret-position="28050">
           <caret line="1870" selection-start-line="1870" selection-end-line="1870" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/wind_jvm.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
+        <state relative-caret-position="5040">
           <caret line="336" selection-start-line="336" selection-end-line="336" />
         </state>
       </provider>
     </entry>
     <entry file="file:///usr/include/boost/function/function_template.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
+        <state relative-caret-position="11580">
           <caret line="772" selection-start-line="772" selection-end-line="772" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/native/java_lang_invoke_MethodHandleNatives.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runtime/bytecodeEngine.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="738" column="25" selection-start-line="738" selection-start-column="25" selection-end-line="738" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/runtime/annotation.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file:///usr/lib/jvm/java-8-openjdk-amd64/include/linux/jni_md.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-231" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test19.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="6" lean-forward="true" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test19.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/jvm/java-8-openjdk-amd64/include/jni.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="1958" lean-forward="true" selection-start-line="1958" selection-end-line="1958" />
+          <folding>
+            <element signature="e#1658#1676#0" expanded="true" />
+            <element signature="e#3113#3516#0" expanded="true" />
+            <element signature="e#5111#5160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/runtime/openjdkNative.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="41" column="7" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
+          <folding>
+            <element signature="e#113#128#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/runtime/openJdkNative.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="125" selection-start-line="125" selection-end-line="125" />
+        <state relative-caret-position="175">
+          <caret line="147" selection-start-line="147" selection-end-line="147" />
           <folding>
             <element signature="e#42#60#0" expanded="true" />
-            <element signature="e#210#1498#0" />
           </folding>
         </state>
       </provider>
