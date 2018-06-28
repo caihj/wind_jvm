@@ -56,8 +56,8 @@ private:
 		static unordered_set<Oop *, java_string_hash, java_string_equal_to> string_table;
 		return string_table;
 	}
-	static Oop *intern_to_oop(const wstring & str);
 public:
+	static Oop *intern_to_oop(const wstring & str);
 	static wstring print_stringOop(InstanceOop *stringoop);
 	static wstring stringOop_to_wstring(InstanceOop *stringoop);
 	static inline __attribute__((always_inline)) Oop *intern(const wstring & str) {

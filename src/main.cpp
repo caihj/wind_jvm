@@ -24,7 +24,8 @@ int main(int argc, char *argv[])
 
 	std::ios::sync_with_stdio(true);		// keep thread safe?
 	std::wcout.imbue(std::locale(""));
-	std::vector<std::wstring> v{ L"wind_jvm", L"1", L"2" };
+	//std::vector<std::wstring> v{ L"wind_jvm", L"1", L"2" };
+	std::vector<std::wstring> v;
 	wind_jvm::run(program, v);
 
 	pthread_exit(nullptr);

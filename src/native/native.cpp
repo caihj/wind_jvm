@@ -83,8 +83,11 @@ void *find_native(const wstring & klass_name, const wstring & signature)	// such
 	if (iter != native_map.end()) {
 		return (*iter).second(signature);		// call the klass's find native method.	// maybe will get nullptr.
 	} else {
+
+#ifdef DEBUG
 		std::wcerr << "didn't find [" << klass_name << ":" << signature << "] in native !! it didn't do registerNatives() function!!" << std::endl;
 		//assert(false);
+#endif
         return nullptr;
 	}
 }

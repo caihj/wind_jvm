@@ -88,20 +88,21 @@ bool loadNativeLib(std::wstring name) {
         LockGuard l(Method_Pool::method_pool_lock());
         for (Method *method: Method_Pool::method_pool()) {
             if (method->is_native() && method->getNative_method().empty()) {
-                std::wcerr << L"emtpy method " << method->get_klass()->get_name() << L":" << method->get_name()
-                           << std::endl;
-
-                std::wcerr << L"descriptor: " << method->get_descriptor() << std::endl;
-
                 wstring funcName =
                         L"Java_" + std::regex_replace(method->get_klass()->get_name(), std::wregex(L"/"), L"_") + L"_" +
                         method->get_name();
+#ifdef DEBUG
+                std::wcerr << L"emtpy method " << method->get_klass()->get_name() << L":" << method->get_name()
+                           << std::endl;
+                std::wcerr << L"descriptor: " << method->get_descriptor() << std::endl;
                 std::wcerr << "funcName:" << funcName << std::endl;
+#endif
 
                 void *funcPtr = dlsym(handle, wstring_to_utf8(funcName).c_str());
                 if (funcPtr != nullptr) {
+#ifdef DEBUG
                     std::wcerr << funcName << L" found!!!" << std::endl;
-
+#endif
                     int argCount = method->parse_argument_list().size();
 
                     //for env and this
@@ -166,9 +167,7 @@ void initNativeInterface() {
 
 jstring NewStringUTF(JNIEnv *env, const char *utf) {
 
-
     wstring ws = utf8_to_wstring(std::string(utf));
-
-    return (jstring) java_lang_string::intern(ws);
+    return static_cast<jstring>(java_lang_string::intern_to_oop(ws));
 }
 
