@@ -24,6 +24,7 @@
 #include <deque>
 #include "utils/utils.hpp"
 #include "native/java_lang_invoke_MethodHandle.hpp"
+#include <cmath>
 
 using std::wstringstream;
 using std::list;
