@@ -168,6 +168,6 @@ void initNativeInterface() {
 jstring NewStringUTF(JNIEnv *env, const char *utf) {
 
     wstring ws = utf8_to_wstring(std::string(utf));
-    return static_cast<jstring>(java_lang_string::intern_to_oop(ws));
+    return reinterpret_cast<jstring>(java_lang_string::intern_to_oop(ws));
 }
 
