@@ -10,8 +10,8 @@ include_directories(include)
 include_directories(include/native)
 include_directories(include/runtime)
 include_directories(include/utils)
-include_directories(/usr/lib/jvm/java-8-openjdk-amd64/include/)
-include_directories(/usr/lib/jvm/java-8-openjdk-amd64/include/linux/)
+include_directories(/usr/lib/jvm/jdk/include/)
+include_directories(/usr/lib/jvm/jdk/include/linux/)
 
 
 add_executable(wind_vm
