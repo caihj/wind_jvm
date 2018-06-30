@@ -24,7 +24,6 @@ void JVM_NativeLibrary_load(list<Oop *> & _stack){
     InstanceOop *_this = (InstanceOop *)_stack.front();	_stack.pop_front();
 
     //set loaded
-    _this->set_field_value(L"java/lang/ClassLoader$NativeLibrary:loaded:Z",new IntOop(1));
 
     InstanceOop *name = (InstanceOop *)_stack.front();	_stack.pop_front();
     IntOop *isBulitIn = (IntOop *)_stack.front();	_stack.pop_front();
@@ -38,7 +37,8 @@ void JVM_NativeLibrary_load(list<Oop *> & _stack){
 
     {
 
-        loadNativeLib(_name);
+        int loaded = loadNativeLib(_name);
+        _this->set_field_value(L"java/lang/ClassLoader$NativeLibrary:loaded:Z",new IntOop(loaded));
     }
 
 #ifdef DEBUG
