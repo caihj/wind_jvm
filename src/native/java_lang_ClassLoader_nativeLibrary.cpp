@@ -38,16 +38,19 @@ void JVM_NativeLibrary_load(list<Oop *> & _stack){
 
     {
 
-        int loaded = loadNativeLib(_name);
-        _this->set_field_value(L"java/lang/ClassLoader$NativeLibrary:loaded:Z",new IntOop(loaded));
+        bool loaded = loadNativeLib(_name);
+        if(loaded)
+            _this->set_field_value(L"java/lang/ClassLoader$NativeLibrary:loaded:Z",new IntOop(1));
+        else
+            _this->set_field_value(L"java/lang/ClassLoader$NativeLibrary:loaded:Z",new IntOop(0));
     }
 
 #ifdef DEBUG
     std::wcerr << java_lang_string::stringOop_to_wstring(name) << std::endl;
     std::wcerr << isBulitIn->value << std::endl;
-#endif
 
     std::wcerr<<"JVM_NativeLibrary_load called load:"<< java_lang_string::stringOop_to_wstring(name) <<std::endl;
+#endif
 }
 
 void JVM_NativeLibrary_find(list<Oop *> & _stack){

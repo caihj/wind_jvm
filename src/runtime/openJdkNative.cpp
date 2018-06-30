@@ -150,7 +150,7 @@ bool loadNativeLib(std::wstring name) {
         }
     }
 
-
+    return true;
 };
 
 
