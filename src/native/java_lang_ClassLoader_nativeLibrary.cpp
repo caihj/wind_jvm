@@ -32,6 +32,7 @@ void JVM_NativeLibrary_load(list<Oop *> & _stack){
     if(_name == L"libzip.so"){
 
         //ignore zip.so
+        _this->set_field_value(L"java/lang/ClassLoader$NativeLibrary:loaded:Z",new IntOop(1));
         return;
     }
 
