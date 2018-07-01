@@ -28,7 +28,7 @@ std::string getTime()
 	gettimeofday(&_now,nullptr);
 	char buf[32];
 	int ret = strftime(buf,sizeof(buf),"%Y-%m-%d %H:%M:%S",localtime(&_now.tv_sec));
-	sprintf(buf+ret,".%ld",_now.tv_usec);
+	sprintf(buf+ret,".%06ld",_now.tv_usec);
 	return std::string(buf);
 }
 
