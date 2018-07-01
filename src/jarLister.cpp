@@ -213,6 +213,8 @@ JarLister::JarLister() : rjd(L"root")
 	bool success = this->getjarlist(rtjar_pos);
 	if (!success)	exit(-1);
 
+	//java_lang_class::initObjectRegisterNative();
+	std::cout<<getTime()<<":JarLister:"<< __LINE__ <<std::endl;
 	ifstream f(wstring_to_utf8(this->rtlist), std::ios_base::in);
 	std::string s;
 	while(!f.eof()) {
@@ -221,4 +223,5 @@ JarLister::JarLister() : rjd(L"root")
 			this->rjd.add_file(StringSplitter(utf8_to_wstring(s)));
 		}
 	}
+	std::cout<<getTime()<<":JarLister:"<< __LINE__ <<std::endl;
 }

@@ -201,18 +201,21 @@ MirrorOop *vm_thread::get_caller_class_CallerSensitive()
 
 void vm_thread::init_and_do_main()
 {
+	std::cout<<getTime()<<":init_and_do_main:"<< __LINE__ <<std::endl;
 	// init.
 	{
 		java_lang_class::init();		// must init !!!
 		auto class_klass = BootStrapClassLoader::get_bootstrap().loadClass(L"java/lang/Class");
 		java_lang_class::fixup_mirrors();	// only [basic types] + java.lang.Class + java.lang.Object
-		//java_lang_class::initObjectRegisterNative();
+
+        std::cout<<getTime()<<":init_and_do_main:"<< __LINE__ <<std::endl;
 
 		// load String.class
 		auto string_klass = ((InstanceKlass *)BootStrapClassLoader::get_bootstrap().loadClass(L"java/lang/String"));
 
+        std::cout<<getTime()<<":init_and_do_main:"<< __LINE__ <<std::endl;
 
-		// 1. create a [half-completed] Thread obj, using the ThreadGroup obj.(for currentThread(), this must be create first!!)
+        // 1. create a [half-completed] Thread obj, using the ThreadGroup obj.(for currentThread(), this must be create first!!)
 		auto thread_klass = ((InstanceKlass *)BootStrapClassLoader::get_bootstrap().loadClass(L"java/lang/Thread"));
 		InstanceOop *init_thread = thread_klass->new_instance();
 		BytecodeEngine::initial_clinit(thread_klass, *this);		// first <clinit>!
@@ -294,6 +297,7 @@ void vm_thread::init_and_do_main()
 		Security_DEBUG_klass->set_state(Klass::KlassState::Initialized);
 
 	}
+    std::cout<<getTime()<<":init_and_do_main:"<< __LINE__ <<std::endl;
 
 	auto Perf_klass = ((InstanceKlass *)BootStrapClassLoader::get_bootstrap().loadClass(L"sun/misc/Perf"));
 	Perf_klass->set_state(Klass::KlassState::Initializing);				// ban Perf.
@@ -310,6 +314,8 @@ void vm_thread::init_and_do_main()
 	MirrorOop *main_class_mirror = (MirrorOop *)this->execute();
 	assert(main_class_mirror->get_ooptype() == OopType::_InstanceOop);
 
+    std::cout<<getTime()<<":init_and_do_main:"<< __LINE__ <<std::endl;
+
 	// first execute <clinit> if has
 	BytecodeEngine::initial_clinit(((InstanceKlass *)main_class_mirror->get_mirrored_who()), *this);
 	// get the `public static void main()`.
@@ -323,7 +329,8 @@ void vm_thread::init_and_do_main()
 		(*string_arr_oop)[i] = java_lang_string::intern(wind_jvm::argv()[i]);
 	}
 
-	// load some useful klass...
+    std::cout<<getTime()<<":init_and_do_main:"<< __LINE__ <<std::endl;
+    // load some useful klass...
 	{
 		auto methodtype_klass = ((InstanceKlass *)BootStrapClassLoader::get_bootstrap().loadClass(L"java/lang/invoke/MethodType"));
 		BytecodeEngine::initial_clinit(methodtype_klass, *this);
@@ -332,7 +339,11 @@ void vm_thread::init_and_do_main()
 
 	}
 
+
 	// The World's End!
+
+    std::cout<<getTime()<<":boot end"<<std::endl;
+
 	this->vm_stack.push_back(StackFrame(main_method, nullptr, nullptr, {string_arr_oop}, this));
 	this->execute();
 

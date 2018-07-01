@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <locale>
+#include <sys/time.h>
 //#include "runtime/oop.hpp"
 //#include "wind_jvm.hpp"
 //#include "native/java_lang_String.hpp"
@@ -19,6 +20,16 @@ std::wstring utf8_to_wstring (const std::string& str)
 {
 	std::wstring_convert<std::codecvt_utf8<wchar_t>> myconv;
 	return myconv.from_bytes(str);
+}
+
+std::string getTime()
+{
+	struct timeval _now;
+	gettimeofday(&_now,nullptr);
+	char buf[32];
+	int ret = strftime(buf,sizeof(buf),"%Y-%m-%d %H:%M:%S",localtime(&_now.tv_sec));
+	sprintf(buf+ret,".%ld",_now.tv_usec);
+	return std::string(buf);
 }
 
 

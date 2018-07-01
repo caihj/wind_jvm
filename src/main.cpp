@@ -8,9 +8,12 @@
 #include "wind_jvm.hpp"
 #include <iostream>
 #include <vector>
+#include <ctime>
 
 int main(int argc, char *argv[])
 {
+    std::cout<<getTime()<<":booting"<<std::endl;
+
 //#ifdef DEBUG
 	sync_wcout::set_switch(true);
 //#endif
