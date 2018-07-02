@@ -6,6 +6,7 @@
 #include "utils/synchronize_wcout.hpp"
 #include "runtime/oop.hpp"
 #include "wind_jvm.hpp"
+#include <streambuf>
 
 using std::ifstream;
 using std::shared_ptr;
@@ -30,30 +31,36 @@ void ClassFile_Pool::cleanup() {
 	}
 }
 
+struct membuf : std::streambuf
+{
+	membuf(const char* begin, const char* end) {
+		this->setg(const_cast<char *>(begin), const_cast<char *>(begin), const_cast<char *>(end));
+	}
+};
+
 /*===-------------------  BootStrap ClassLoader ----------------------===*/
 Klass *BootStrapClassLoader::loadClass(const wstring & classname, ByteStream *, MirrorOop *,
 												  bool, InstanceKlass *, ObjArrayOop *)
 {
 	// add lock simply
 	LockGuard lg(system_classmap_lock);
-	assert(jl.find_file(L"java/lang/Object.class")==1);
 	wstring target = classname + L".class";
-	if (jl.find_file(target)) {
+	std::string *content = zipFile.getFile(target);
+	if (content != nullptr) {
 		if (system_classmap.find(target) != system_classmap.end()) {	// has been loaded
 			return system_classmap[target];
 		} else {	// load
 			// parse a ClassFile (load)
-			ifstream f(wstring_to_utf8(jl.get_sun_dir() + L"/" + target).c_str(), std::ios::binary);
-			if(!f.is_open()) {
-				std::wcerr << "wrong! --- at BootStrapClassLoader::loadClass" << std::endl;
-				exit(-1);
-			}
+
+			membuf sbuf(content->c_str(), content->c_str()+content->size());
+			std::istream f(&sbuf);
 #ifdef DEBUG
 			sync_wcout{} << "===----------------- begin parsing (" << target << ") 's ClassFile in BootstrapClassLoader..." << std::endl;
 #endif
 			ClassFile *cf = new ClassFile;
 			ClassFile_Pool::put(cf);
 			f >> *cf;
+			delete content;
 #ifdef DEBUG
 			sync_wcout{} << "===----------------- parsing (" << target << ") 's ClassFile end." << std::endl;
 #endif

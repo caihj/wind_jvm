@@ -9,6 +9,7 @@
 #include "jarLister.hpp"
 #include "system_directory.hpp"
 #include "utils/lock.hpp"
+#include "ZipFile.h"
 #include <iomanip>
 #include <list>
 
@@ -48,7 +49,7 @@ public:
 
 class BootStrapClassLoader : public ClassLoader {
 private:
-	JarLister jl;
+    ZipFile zipFile;
 private:
 	BootStrapClassLoader() {}
 	BootStrapClassLoader(const BootStrapClassLoader &);
