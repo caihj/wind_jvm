@@ -17,7 +17,8 @@
 #include "wind_jvm.hpp"
 #include "classloader.hpp"
 #include <sys/time.h>
-#include "jarLister.hpp"
+
+extern  std::wstring pwd;
 
 using std::vector;
 

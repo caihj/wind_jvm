@@ -6,12 +6,12 @@
 #include <fstream>
 #include <streambuf>
 #include "class_parser.hpp"
-#include "jarLister.hpp"
 #include "system_directory.hpp"
 #include "utils/lock.hpp"
 #include "ZipFile.h"
 #include <iomanip>
 #include <list>
+#include <vector>
 
 using std::map;
 using std::list;
@@ -95,7 +95,7 @@ private:
 	Lock lock;
 	BootStrapClassLoader & bs = BootStrapClassLoader::get_bootstrap();
 	map<wstring, Klass *> classmap;
-	vector<InstanceKlass *> anonymous_klassmap;
+	std::vector<InstanceKlass *> anonymous_klassmap;
 private:
 	MyClassLoader() {};
 	MyClassLoader(const MyClassLoader &);

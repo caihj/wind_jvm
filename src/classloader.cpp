@@ -61,6 +61,7 @@ Klass *BootStrapClassLoader::loadClass(const wstring & classname, ByteStream *, 
 			ClassFile_Pool::put(cf);
 			f >> *cf;
 			delete content;
+
 #ifdef DEBUG
 			sync_wcout{} << "===----------------- parsing (" << target << ") 's ClassFile end." << std::endl;
 #endif

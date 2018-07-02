@@ -61,7 +61,6 @@ add_executable(wind_vm
         include/utils/utils.hpp
         include/class_parser.hpp
         include/classloader.hpp
-        include/jarLister.hpp
         include/system_directory.hpp
         include/wind_jvm.hpp
         src/native/java_io_FileDescriptor.cpp
@@ -109,7 +108,6 @@ add_executable(wind_vm
         src/utils/utils.cpp
         src/class_parser.cpp
         src/classloader.cpp
-        src/jarLister.cpp
         src/main.cpp
         src/system_directory.cpp
         src/wind_jvm.cpp include/runtime/openjdkNative.hpp src/runtime/openJdkNative.cpp include/native/java_lang_ClassLoader_NativeLibrary.hpp src/native/java_lang_ClassLoader_nativeLibrary.cpp src/ZipFile.cpp)

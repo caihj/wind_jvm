@@ -10,11 +10,12 @@
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 
+std::wstring pwd;
 
 void ZipFile::init()
 {
 
-    const std::wstring pwd = utf8_to_wstring(boost::filesystem::initial_path<boost::filesystem::path>().string());
+    pwd = utf8_to_wstring(boost::filesystem::initial_path<boost::filesystem::path>().string());
     // get xml
     std::wstring config_xml = pwd + L"/config.xml";
     if(!boost::filesystem::exists(config_xml)) {
