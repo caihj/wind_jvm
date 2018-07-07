@@ -9,7 +9,7 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
-
+extern unsigned  long cost ;
 int main(int argc, char *argv[])
 {
     std::cout<<getTime()<<":booting"<<std::endl;
@@ -31,5 +31,6 @@ int main(int argc, char *argv[])
 	std::vector<std::wstring> v;
 	wind_jvm::run(program, v);
 
+	std::wcout<<L"cost:"<<cost<<std::endl;
 	pthread_exit(nullptr);
 }

@@ -9,6 +9,7 @@
 #include <boost/filesystem/operations.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
+#include <sys/time.h>
 
 std::wstring pwd;
 
@@ -38,15 +39,20 @@ void ZipFile::init()
     
     
     int error = 0;
-    z = zip_open(wstring_to_utf8(zipPath).c_str(),0,&error);
+    z = zip_open(wstring_to_utf8(zipPath).c_str(),ZIP_RDONLY,&error);
     if(z == nullptr){
         std::wcerr<<L"open file error :"+zipPath<<std::endl;
         exit(-1);
     }
 }
 
+unsigned long cost = 0;
+
 std::string * ZipFile::getFile(std::wstring path)
 {
+
+    struct timeval _begin;
+    gettimeofday(&_begin,nullptr);
 
     std::string name = wstring_to_utf8(path);
 
@@ -60,9 +66,14 @@ std::string * ZipFile::getFile(std::wstring path)
 
     char * buf = new char[st.size];
 
-    zip_file * f = zip_fopen(z,name.c_str(),0);
+    zip_file * f = zip_fopen(z,name.c_str(),ZIP_FL_COMPRESSED|ZIP_FL_UNCHANGED);
     zip_fread(f,buf,st.size);
     zip_fclose(f);
+
+    struct timeval _end;
+    gettimeofday(&_end,nullptr);
+    cost += (((long )_end.tv_sec)*1000000 + _end.tv_usec  ) - (((long )_begin.tv_sec)*1000000 + _begin.tv_usec );
+
 
     return new std::string(buf,st.size);
 }
