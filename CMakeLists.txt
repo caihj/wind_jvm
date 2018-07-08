@@ -112,6 +112,6 @@ add_executable(wind_vm
         src/jarLister.cpp
         src/main.cpp
         src/system_directory.cpp
-        src/wind_jvm.cpp include/runtime/openjdkNative.hpp Test19.cpp src/runtime/openJdkNative.cpp include/native/java_lang_ClassLoader_NativeLibrary.hpp src/native/java_lang_ClassLoader_nativeLibrary.cpp)
+        src/wind_jvm.cpp include/runtime/openjdkNative.hpp Test19.cpp src/runtime/openJdkNative.cpp include/native/java_lang_ClassLoader_NativeLibrary.hpp src/native/java_lang_ClassLoader_nativeLibrary.cpp src/native/java_net_PlainSocketImpl.cpp include/native/java_net_PlainSocketImpl.hpp)
 
 target_link_libraries(wind_vm pthread boost_filesystem boost_system boost_regex dl ffi)

@@ -12,12 +12,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21aa1abd-b3d0-4199-8dbc-3a60b8f22673" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/utils/utils.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/utils/utils.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jarLister.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/jarLister.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/utils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/wind_jvm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/wind_jvm.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/native/java_net_PlainSocketImpl.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/native/java_net_PlainSocketImpl.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/native/native.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/native/native.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/CMakeFiles/" />
@@ -31,84 +30,100 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="3" column="27" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="27" />
-              <folding>
-                <element signature="e#80#103#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="classloader.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/classloader.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="39" column="43" lean-forward="true" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
-              <folding>
-                <element signature="e#0#17#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jarLister.hpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/jarLister.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="108" column="12" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rt.list" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rt.list">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-291789" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/utils.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-94">
-              <caret line="24" selection-start-line="24" selection-end-line="24" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wind_jvm.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/wind_jvm.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="210" column="8" selection-start-line="210" selection-start-column="8" selection-end-line="210" selection-end-column="74" />
-              <folding>
-                <element signature="e#78#101#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="java_lang_Class.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/native/java_lang_Class.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
+            <state relative-caret-position="375">
               <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.hpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/utils/utils.hpp">
+      <file leaf-file-name="java_lang_invoke_MethodHandle.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/native/java_lang_invoke_MethodHandle.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="java_lang_Object.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/native/java_lang_Object.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+            <state relative-caret-position="916">
+              <caret line="71" column="123" selection-start-line="71" selection-start-column="123" selection-end-line="71" selection-end-column="123" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="java_lang_Runtime.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/native/java_lang_Runtime.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="java_net_PlainSocketImpl.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/native/java_net_PlainSocketImpl.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+              <folding>
+                <element signature="e#40#81#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="native.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/native/native.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="645">
+              <caret line="77" column="69" lean-forward="true" selection-start-line="77" selection-start-column="69" selection-end-line="77" selection-end-column="69" />
+              <folding>
+                <element signature="e#79#125#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="java_lang_Throwable.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/native/java_lang_Throwable.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="711">
+              <caret line="63" column="65" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="65" />
+              <folding>
+                <element signature="e#94#135#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="native.hpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/native/native.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="java_net_PlainSocketImpl.hpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/native/java_net_PlainSocketImpl.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+              <folding>
+                <element signature="e#129#144#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="java_lang_Throwable.hpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/native/java_lang_Throwable.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="15" column="46" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -117,9 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nullptr</find>
-      <find>_stack.push_back(nullptr);</find>
-      <find>arg list</find>
       <find>ab</find>
       <find>didn't find field</find>
       <find>isBulitIn</find>
@@ -147,9 +159,16 @@
       <find>invokes</find>
       <find>rt_pool</find>
       <find>tm</find>
+      <find>native</find>
+      <find>//[!W].*\R</find>
+      <find>);</find>
     </findStrings>
     <replaceStrings>
       <replace>std::wce</replace>
+      <replace>static</replace>
+      <replace>{\n\n}</replace>
+      <replace>{\R\R}</replace>
+      <replace>{\}</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -166,7 +185,6 @@
         <option value="$PROJECT_DIR$/include/runtime/method.hpp" />
         <option value="$PROJECT_DIR$/Test19.java" />
         <option value="$PROJECT_DIR$/include/runtime/openjdkNative.hpp" />
-        <option value="$PROJECT_DIR$/src/native/native.cpp" />
         <option value="$PROJECT_DIR$/include/native/java_lang_String.hpp" />
         <option value="$PROJECT_DIR$/Test13.java" />
         <option value="$PROJECT_DIR$/include/runtime/gc.hpp" />
@@ -185,6 +203,9 @@
         <option value="$PROJECT_DIR$/src/wind_jvm.cpp" />
         <option value="$PROJECT_DIR$/src/jarLister.cpp" />
         <option value="$PROJECT_DIR$/src/classloader.cpp" />
+        <option value="$PROJECT_DIR$/include/native/java_net_PlainSocketImpl.hpp" />
+        <option value="$PROJECT_DIR$/src/native/java_net_PlainSocketImpl.cpp" />
+        <option value="$PROJECT_DIR$/src/native/native.cpp" />
       </list>
     </option>
   </component>
@@ -209,6 +230,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="wind_jvm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wind_jvm" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -225,41 +257,23 @@
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="wind_jvm" type="cbb8eebc:String" user="wind_jvm" />
               <item name="include" type="cbb8eebc:String" user="include" />
-              <item name="runtime" type="cbb8eebc:String" user="runtime" />
+              <item name="native" type="cbb8eebc:String" user="native" />
             </path>
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="wind_jvm" type="cbb8eebc:String" user="wind_jvm" />
-              <item name="include" type="cbb8eebc:String" user="include" />
-              <item name="utils" type="cbb8eebc:String" user="utils" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="wind_jvm" type="cbb8eebc:String" user="wind_jvm" />
-              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="lib" type="cbb8eebc:String" user="lib" />
             </path>
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="wind_jvm" type="cbb8eebc:String" user="wind_jvm" />
               <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="runtime" type="cbb8eebc:String" user="runtime" />
             </path>
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="wind_jvm" type="cbb8eebc:String" user="wind_jvm" />
               <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="utils" type="cbb8eebc:String" user="utils" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="wind_jvm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wind_jvm" type="462c0819:PsiDirectoryNode" />
+              <item name="native" type="cbb8eebc:String" user="native" />
             </path>
           </expand>
           <select />
@@ -275,6 +289,11 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="language.cpp" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/include/native" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -380,17 +399,17 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61204000" />
+    <option name="totallyTimeSpent" value="62090000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1614143" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.206469" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3689759" />
       <window_info anchor="bottom" id="CMake" order="12" weight="0.3329918" />
+      <window_info anchor="right" id="LuaJ" order="3" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.28463855" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32991803" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.19277108" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -399,22 +418,34 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.24397591" />
       <window_info id="Designer" order="3" />
       <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.19277108" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.59016395" />
       <window_info id="Capture Tool" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="LuaJ" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1614143" />
       <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32991803" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.3329918" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.28463855" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3689759" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.24397591" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -462,7 +493,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="89" />
+      <option name="time" value="90" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -475,73 +506,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/runtime/openJdkNative.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
-          <folding>
-            <element signature="e#42#60#0" expanded="true" />
-            <element signature="e#2778#2830#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/runtime/openjdkNative.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/native/java_lang_ClassLoader_nativeLibrary.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-96">
-          <caret line="31" column="30" lean-forward="true" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runtime/gc.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="307" column="57" lean-forward="true" selection-start-line="307" selection-start-column="57" selection-end-line="307" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test17.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test18.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test19.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wind_jvm.cbp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test1.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/native/java_lang_invoke_MethodHandleNatives.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/native/java_lang_reflect_Array.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/native/sun_reflect_Reflection.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file:///usr/include/boost/bind/bind.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="253" selection-start-line="253" selection-end-line="253" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/native/sun_reflect_NativeMethodAccessorImpl.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -550,11 +514,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/native/java_lang_invoke_MethodHandle.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="293" selection-start-line="293" selection-end-line="293" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Test3.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -610,7 +570,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/native/java_lang_Object.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1065">
+        <state relative-caret-position="916">
           <caret line="71" column="123" selection-start-line="71" selection-start-column="123" selection-end-line="71" selection-end-column="123" />
         </state>
       </provider>
@@ -651,9 +611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3675">
           <caret line="245" selection-start-line="245" selection-end-line="245" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -720,15 +677,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-94">
           <caret line="24" selection-start-line="24" selection-end-line="24" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/native/java_lang_Class.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="375">
           <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
         </state>
       </provider>
@@ -785,6 +739,85 @@
           <caret line="39" column="43" lean-forward="true" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/native/java_lang_ClassLoader.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/native/java_lang_Runtime.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/native/java_lang_ClassLoader_nativeLibrary.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/native/java_lang_Double.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/native/java_lang_Throwable.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="15" column="46" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/native/java_lang_Float.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/native/java_lang_Package.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/native/native.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/native/java_lang_Throwable.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="711">
+          <caret line="63" column="65" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="65" />
+          <folding>
+            <element signature="e#94#135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/native/java_net_PlainSocketImpl.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+          <folding>
+            <element signature="e#129#144#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/native/java_lang_invoke_MethodHandleNatives.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/native/native.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="77" column="69" lean-forward="true" selection-start-line="77" selection-start-column="69" selection-end-line="77" selection-end-column="69" />
+          <folding>
+            <element signature="e#79#125#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/native/java_net_PlainSocketImpl.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+          <folding>
+            <element signature="e#40#81#0" expanded="true" />
           </folding>
         </state>
       </provider>
