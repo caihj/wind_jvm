@@ -110,6 +110,10 @@ add_executable(wind_vm
         src/classloader.cpp
         src/main.cpp
         src/system_directory.cpp
-        src/wind_jvm.cpp include/runtime/openjdkNative.hpp src/runtime/openJdkNative.cpp  src/native/java_lang_ClassLoader_nativeLibrary.cpp src/ZipFile.cpp)
+        src/wind_jvm.cpp
+        src/native/java_net_PlainSocketImpl.cpp
+        src/runtime/openJdkNative.cpp
+        src/native/java_lang_ClassLoader_nativeLibrary.cpp
+        src/ZipFile.cpp)
 
 target_link_libraries(wind_vm pthread boost_filesystem boost_system boost_regex dl ffi zip)
