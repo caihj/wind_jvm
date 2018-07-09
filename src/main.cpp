@@ -10,6 +10,7 @@
 #include <vector>
 #include <ctime>
 extern unsigned  long cost ;
+extern std::vector<std::wstring> load_class;
 int main(int argc, char *argv[])
 {
     std::cout<<getTime()<<":booting"<<std::endl;
@@ -32,5 +33,9 @@ int main(int argc, char *argv[])
 	wind_jvm::run(program, v);
 
 	std::wcout<<L"cost:"<<cost<<std::endl;
+//	for(std::wstring t_name:load_class){
+//		std::wcout<<t_name<<std::endl;
+//	}
+//
 	pthread_exit(nullptr);
 }

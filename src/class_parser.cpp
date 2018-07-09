@@ -106,7 +106,7 @@ std::istream & operator >> (std::istream & f, CONSTANT_Long_info & i) {
 	return f;
 }
 long CONSTANT_Long_info::get_value() {
-	return ((long)high_bytes << 32) + low_bytes;
+	return (static_cast<long>(high_bytes) << 32) + low_bytes;
 }
 
 // CONSTANT_Double_info

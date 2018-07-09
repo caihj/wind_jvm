@@ -10,6 +10,7 @@
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 #include <sys/time.h>
+#include <vector>
 
 std::wstring pwd;
 
@@ -46,11 +47,13 @@ void ZipFile::init()
     }
 }
 
+std::vector<std::wstring> load_class;
 unsigned long cost = 0;
 
 std::string * ZipFile::getFile(std::wstring path)
 {
 
+    load_class.push_back(path);
     struct timeval _begin;
     gettimeofday(&_begin,nullptr);
 
