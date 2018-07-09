@@ -45,11 +45,12 @@ Klass *BootStrapClassLoader::loadClass(const wstring & classname, ByteStream *, 
 	// add lock simply
 	LockGuard lg(system_classmap_lock);
 	wstring target = classname + L".class";
+	if (system_classmap.find(target) != system_classmap.end()) {	// has been loaded
+		return system_classmap[target];
+	}
+
 	std::string *content = zipFile.getFile(target);
 	if (content != nullptr) {
-		if (system_classmap.find(target) != system_classmap.end()) {	// has been loaded
-			return system_classmap[target];
-		} else {	// load
 			// parse a ClassFile (load)
 
 			membuf sbuf(content->c_str(), content->c_str()+content->size());
@@ -73,7 +74,6 @@ Klass *BootStrapClassLoader::loadClass(const wstring & classname, ByteStream *, 
 	MyClassLoader::get_loader().print();
 #endif
 			return newklass;
-		}
 	} else if (boost::starts_with(classname, L"[")) {
 		if (system_classmap.find(target) != system_classmap.end()) {	// has been loaded
 			return system_classmap[target];
