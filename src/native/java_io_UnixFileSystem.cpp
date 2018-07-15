@@ -47,7 +47,7 @@ void JVM_Canonicalize0(list<Oop *> & _stack){
 
 	wstring canonical_path ;
 	try{
-        boost::filesystem::canonical(path).wstring();
+        canonical_path = boost::filesystem::canonical(path).wstring();
     }catch (std::runtime_error e) {
         //exception
         //native_throw_Exception(excp_klass, thread, _stack, msg);
@@ -56,7 +56,6 @@ void JVM_Canonicalize0(list<Oop *> & _stack){
         vm_thread *thread = (vm_thread *)_stack.back();	_stack.pop_back();
         std::wstring msg = L"IOException:" + utf8_to_wstring(e.what());
         native_throw_Exception(excp_klass, thread, _stack, msg);
-        std::wcout<<"exception"<<std::endl;
         return;
 	}
 

@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 	std::vector<std::wstring> v;
 	wind_jvm::run(program, v);
 
-	std::wcout<<L"cost:"<<cost<<std::endl;
+
 //	for(std::wstring t_name:load_class){
 //		std::wcout<<t_name<<std::endl;
 //	}

@@ -13,11 +13,9 @@
 #include <classloader.hpp>
 
 
-static unordered_map<wstring, void*> methods = {
-        {L"socketRead0:(Ljava/io/FileDescriptor;[BIII)I" ,(void *)&socketRead0},
-};
 
-void socketRead0(list<Oop *> & _stack){
+
+static void socketRead0(list<Oop *> & _stack){
     InstanceOop *_this = (InstanceOop *)_stack.front();	_stack.pop_front();
     InstanceOop *fileDescriptor = (InstanceOop *)_stack.front();	_stack.pop_front();
 
@@ -34,7 +32,14 @@ void socketRead0(list<Oop *> & _stack){
     char * buf = new char[len];
 
     int ret = read(fd->value,buf,len);
-    assert(ret!=-1);
+    if(ret < 0 ){
+        auto excp_klass = ((InstanceKlass *)BootStrapClassLoader::get_bootstrap().loadClass(L"java/io/IOException"));
+        // get current thread
+        vm_thread *thread = (vm_thread *)_stack.back();	_stack.pop_back();
+        std::wstring msg = L"read error:"+ utf8_to_wstring(strerror(errno));
+        native_throw_Exception(excp_klass, thread, _stack, msg);
+        return;
+    }
 
     for(int i=offset ; i< ret ; i++){
        ((IntOop *)(*bytes)[i])->value = buf[i];
@@ -44,6 +49,15 @@ void socketRead0(list<Oop *> & _stack){
 
     _stack.push_back(new IntOop(ret));
 }
+
+static void init(list<Oop *> & _stack){
+
+}
+
+static unordered_map<wstring, void*> methods = {
+        {L"socketRead0:(Ljava/io/FileDescriptor;[BIII)I" ,(void *)&socketRead0},
+        {L"init:()V",(void *)&init},
+};
 
 void *java_net_SocketInputStream_search_method(const wstring & signature){
 

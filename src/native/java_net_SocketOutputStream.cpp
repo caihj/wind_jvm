@@ -11,9 +11,6 @@
 #include <classloader.hpp>
 
 
-static unordered_map<wstring, void*> methods = {
-        {L"socketWrite0:(Ljava/io/FileDescriptor;[BII)V" TRB,(void *)&socketWrite0},
-};
 
 void socketWrite0(list<Oop *> & _stack){
     InstanceOop *_this = (InstanceOop *)_stack.front();	_stack.pop_front();
@@ -24,7 +21,7 @@ void socketWrite0(list<Oop *> & _stack){
     int len = ((IntOop *)_stack.front())->value;	_stack.pop_front();
 
     Oop *oop ;
-    ((InstanceOop *)oop)->get_field_value(FILEDESCRIPTOR L":fd:I", &oop);
+    ((InstanceOop *)fileDescriptor)->get_field_value(FILEDESCRIPTOR L":fd:I", &oop);
     int fd = ((IntOop *)oop)->value;
     assert(bytes->get_length() > offset && bytes->get_length() >= (offset + len));
 
@@ -39,6 +36,16 @@ void socketWrite0(list<Oop *> & _stack){
     delete[] buf;
 
 }
+
+static void init(list<Oop *> & _stack){
+
+}
+
+static unordered_map<wstring, void*> methods = {
+        {L"socketWrite0:(Ljava/io/FileDescriptor;[BII)V",(void *)&socketWrite0},
+        {L"init:()V",(void *)&init},
+};
+
 
 void *java_net_SocketOutputStream_search_method(const wstring & signature){
 

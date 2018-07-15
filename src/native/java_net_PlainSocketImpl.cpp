@@ -11,6 +11,7 @@
 #include <sys/un.h>
 #include <classloader.hpp>
 #include <sys/ioctl.h>
+#include <native/java_lang_String.hpp>
 
 static unordered_map<wstring, void*> methods = {
         {L"socketCreate:(Z)V" ,(void *)&socketCreate},
@@ -63,9 +64,11 @@ static void socketConnect(list<Oop *> & _stack){
     IntOop *ip;
     holder->get_field_value(L"java/net/InetAddress$InetAddressHolder:address:I",reinterpret_cast<Oop **>(&ip));
 
-    IntOop  *sockfd ;
-    _this->get_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",reinterpret_cast<Oop **>(&sockfd));
+    InstanceOop  *fd ;
+    _this->get_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",reinterpret_cast<Oop **>(&fd));
 
+    IntOop *sockfd;
+    fd->get_field_value(L"java/io/FileDescriptor:fd:I",reinterpret_cast<Oop **>(&sockfd));
 
     struct sockaddr_in server_addr;
     socklen_t socklen = sizeof(server_addr);
@@ -81,12 +84,25 @@ static void socketConnect(list<Oop *> & _stack){
         server_addr.sin_family = AF_INET;
         server_addr.sin_port = htons(port->value);
 
+        char buf[64];
+
+        std::wstring addr_str = utf8_to_wstring(inet_ntop(AF_INET,&(server_addr.sin_addr.s_addr),buf,sizeof(buf)));
+#ifdef  DEBUG
+        std::wcout<<L"connect:" <<std::endl;
+#endif
         int ret = connect(sockfd->value, (struct sockaddr *) &server_addr, socklen);
         if (ret == 0) {
             //success
 #ifdef  DEBUG
     std::wcout<<L"connect success"<<std::endl;
 #endif
+        }else{
+            auto excp_klass = ((InstanceKlass *)BootStrapClassLoader::get_bootstrap().loadClass(L"java/net/SocketException"));
+            // get current thread
+            vm_thread *thread = (vm_thread *)_stack.back();	_stack.pop_back();
+            std::wstring msg = L"connect error:"+ utf8_to_wstring(strerror(errno));
+            native_throw_Exception(excp_klass, thread, _stack, msg);
+            return;
         }
 
     }else if(family->value == IPv6){
@@ -112,9 +128,11 @@ static void socketBind(list<Oop *> & _stack){
     IntOop *ip;
     holder->get_field_value(L"java/net/InetAddress$InetAddressHolder:address:I" ,reinterpret_cast<Oop **>(&ip));
 
-    IntOop  *sockfd ;
-    _this->get_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",reinterpret_cast<Oop **>(&sockfd));
+    InstanceOop  *fd ;
+    _this->get_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",reinterpret_cast<Oop **>(&fd));
 
+    IntOop *sockfd;
+    fd->get_field_value(L"java/io/FileDescriptor:fd:I",reinterpret_cast<Oop **>(&sockfd));
 
     struct sockaddr_in server_addr;
     socklen_t socklen = sizeof(server_addr);
@@ -139,12 +157,12 @@ static void socketBind(list<Oop *> & _stack){
         }else{
             //exception
             //native_throw_Exception(excp_klass, thread, _stack, msg);
-            auto excp_klass = ((InstanceKlass *)BootStrapClassLoader::get_bootstrap().loadClass(L"java/net/BindException"));
+            auto excp_klass = ((InstanceKlass *)BootStrapClassLoader::get_bootstrap().loadClass(L"java/net/SocketException"));
             // get current thread
             vm_thread *thread = (vm_thread *)_stack.back();	_stack.pop_back();
-            std::wstring msg = L"bind error"+ utf8_to_wstring(strerror(errno));
+            std::wstring msg = L"bind error:"+ utf8_to_wstring(strerror(errno));
             native_throw_Exception(excp_klass, thread, _stack, msg);
-
+            return;
         }
 
     }else if(family->value == 2){
@@ -157,8 +175,11 @@ static void socketListen(list<Oop *> & _stack){
     InstanceOop *_this = (InstanceOop *)_stack.front();	_stack.pop_front();
     IntOop *count = (IntOop *)_stack.front();	_stack.pop_front();
 
-    IntOop  *sockfd ;
-    _this->get_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",reinterpret_cast<Oop **>(&sockfd));
+    InstanceOop  *fd ;
+    _this->get_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",reinterpret_cast<Oop **>(&fd));
+
+    IntOop *sockfd;
+    fd->get_field_value(L"java/io/FileDescriptor:fd:I",reinterpret_cast<Oop **>(&sockfd));
 
     int ret = listen(sockfd->value,count->value);
     if(ret<0){
@@ -177,31 +198,43 @@ static void socketAccept(list<Oop *> & _stack){
     InstanceOop *_this = (InstanceOop *)_stack.front();	_stack.pop_front();
     InstanceOop *clientsocket = (InstanceOop *)_stack.front();	_stack.pop_front();
 
-    IntOop  *sockfd ;
-    _this->get_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",reinterpret_cast<Oop **>(&sockfd));
+    InstanceOop  *fd ;
+    _this->get_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",reinterpret_cast<Oop **>(&fd));
+
+    IntOop *sockfd;
+    fd->get_field_value(L"java/io/FileDescriptor:fd:I",reinterpret_cast<Oop **>(&sockfd));
+
 
     struct sockaddr_un peer_addr;
     socklen_t peer_addr_size = sizeof(struct sockaddr_un);
-    int clientfd  = accept(sockfd->value,(struct sockaddr *) &peer_addr,
+    int clientSockfd  = accept(sockfd->value,(struct sockaddr *) &peer_addr,
             &peer_addr_size);
 
     //set address
 
-    clientsocket->set_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",new IntOop(clientfd));
+    InstanceOop  *clientfd ;
+    clientsocket->get_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",reinterpret_cast<Oop **>(&clientfd));
+    clientfd->set_field_value(L"java/io/FileDescriptor:fd:I",new IntOop(clientSockfd));
 
     if(peer_addr.sun_family==AF_INET){
 
         struct sockaddr_in *client_address = reinterpret_cast<sockaddr_in *>(&peer_addr);
 
         InstanceOop *address;
-        clientsocket->get_field_value(L"java/net/InetAddress:address:Ljava/net/InetAddress;",reinterpret_cast<Oop **>(&address));
+        clientsocket->get_field_value(L"java/net/SocketImpl:address:Ljava/net/InetAddress;",reinterpret_cast<Oop **>(&address));
 
         InstanceOop * holder;
         address->get_field_value(L"java/net/InetAddress:holder:Ljava/net/InetAddress$InetAddressHolder;", reinterpret_cast<Oop **>(&holder));
 
-        IntOop *ip;
         holder->set_field_value(L"java/net/InetAddress$InetAddressHolder:address:I" ,new IntOop(ntohl(client_address->sin_addr.s_addr)));
         holder->set_field_value(L"java/net/InetAddress$InetAddressHolder:family:I" ,new IntOop(IPv4));
+
+        char buf[128];
+        utf8_to_wstring(inet_ntop(AF_INET,&(client_address->sin_addr.s_addr),buf,sizeof(buf)));
+
+        Oop * hostname = java_lang_string::intern_to_oop(utf8_to_wstring(buf));
+        holder->set_field_value(L"java/net/InetAddress$InetAddressHolder:hostName:" STR ,hostname);
+        holder->set_field_value(L"java/net/InetAddress$InetAddressHolder:originalHostName:" STR ,hostname);
 
     }else{
         //not supported now
@@ -212,8 +245,11 @@ static void socketAvailable(list<Oop *> & _stack){
 
     InstanceOop *_this = (InstanceOop *)_stack.front();	_stack.pop_front();
 
-    IntOop  *sockfd ;
-    _this->get_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",reinterpret_cast<Oop **>(&sockfd));
+    InstanceOop  *fd ;
+    _this->get_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",reinterpret_cast<Oop **>(&fd));
+
+    IntOop *sockfd;
+    fd->get_field_value(L"java/io/FileDescriptor:fd:I",reinterpret_cast<Oop **>(&sockfd));
 
     int bytesAv;
     ioctl(sockfd->value,FIONREAD,&bytesAv);
@@ -224,16 +260,26 @@ static void socketClose0(list<Oop *> & _stack){
     InstanceOop *_this = (InstanceOop *)_stack.front();	_stack.pop_front();
     IntOop * useDeferredClose = static_cast<IntOop *>(_stack.front());	_stack.pop_front();
 
-    IntOop  *sockfd ;
-    _this->get_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",reinterpret_cast<Oop **>(&sockfd));
+    InstanceOop  *fd ;
+    _this->get_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",reinterpret_cast<Oop **>(&fd));
 
-    int ret = close(sockfd->value);
+    IntOop *sockfd;
+    fd->get_field_value(L"java/io/FileDescriptor:fd:I",reinterpret_cast<Oop **>(&sockfd));
+
+    int oldfd = sockfd->value;
+
+    if(useDeferredClose->value==1){
+        sockfd->value= dup(oldfd);
+    }
+
+    int ret = close(oldfd);
     if(ret<0){
         auto excp_klass = ((InstanceKlass *)BootStrapClassLoader::get_bootstrap().loadClass(L"java/net/SocketException"));
         // get current thread
         vm_thread *thread = (vm_thread *)_stack.back();	_stack.pop_back();
-        std::wstring msg = L"close error"+ utf8_to_wstring(strerror(errno));
+        std::wstring msg = L"close error:"+ utf8_to_wstring(strerror(errno));
         native_throw_Exception(excp_klass, thread, _stack, msg);
+        return;
     }
 
 }
@@ -242,8 +288,11 @@ static void socketShutdown(list<Oop *> & _stack){
     InstanceOop *_this = (InstanceOop *)_stack.front();	_stack.pop_front();
     IntOop * howTo = static_cast<IntOop *>(_stack.front());	_stack.pop_front();
 
-    IntOop  *sockfd ;
-    _this->get_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",reinterpret_cast<Oop **>(&sockfd));
+    InstanceOop  *fd ;
+    _this->get_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",reinterpret_cast<Oop **>(&fd));
+
+    IntOop *sockfd;
+    fd->get_field_value(L"java/io/FileDescriptor:fd:I",reinterpret_cast<Oop **>(&sockfd));
 
     int ret = shutdown(sockfd->value,howTo->value);
     if(ret<0){

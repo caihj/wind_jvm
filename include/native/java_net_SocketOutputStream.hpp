@@ -11,7 +11,7 @@ class Oop;
 using std::wstring;
 using std::list;
 
-void socketWrite0(list<Oop *> & _stack);
+
 void *java_net_SocketOutputStream_search_method(const wstring & signature);
 
 
