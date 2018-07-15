@@ -16,6 +16,7 @@
 #include "utils/utils.hpp"
 #include <sys/stat.h>
 #include <native/java_io_FileSystem.hpp>
+#include <classloader.hpp>
 
 static unordered_map<wstring, void*> methods = {
     {L"initIDs:()V",								(void *)&JVM_UFS_InitIDs},
@@ -44,7 +45,20 @@ void JVM_Canonicalize0(list<Oop *> & _stack){
 		has_final_char = true;
 	}
 
-	wstring canonical_path = boost::filesystem::canonical(path).wstring();
+	wstring canonical_path ;
+	try{
+        boost::filesystem::canonical(path).wstring();
+    }catch (std::runtime_error e) {
+        //exception
+        //native_throw_Exception(excp_klass, thread, _stack, msg);
+        auto excp_klass = ((InstanceKlass *)BootStrapClassLoader::get_bootstrap().loadClass(L"java/io/IOException"));
+        // get current thread
+        vm_thread *thread = (vm_thread *)_stack.back();	_stack.pop_back();
+        std::wstring msg = L"IOException:" + utf8_to_wstring(e.what());
+        native_throw_Exception(excp_klass, thread, _stack, msg);
+        std::wcout<<"exception"<<std::endl;
+        return;
+	}
 
 	if (has_final_char) {
 		canonical_path += final_char;

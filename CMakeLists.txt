@@ -45,6 +45,8 @@ add_executable(wind_vm
         include/native/sun_reflect_NativeConstructorAccessorImpl.hpp
         include/native/sun_reflect_NativeMethodAccessorImpl.hpp
         include/native/sun_reflect_Reflection.hpp
+        include/native/java_net_SocketInputStream.hpp
+        include/native/java_net_SocketOutputStream.hpp
         include/runtime/annotation.hpp
         include/runtime/bytecodeEngine.hpp
         include/runtime/constantpool.hpp
@@ -93,6 +95,7 @@ add_executable(wind_vm
         src/native/sun_reflect_NativeConstructorAccessorImpl.cpp
         src/native/sun_reflect_NativeMethodAccessorImpl.cpp
         src/native/sun_reflect_Reflection.cpp
+        src/native/java_net_SocketOutputStream.cpp
         src/runtime/annotation.cpp
         src/runtime/bytecodeEngine.cpp
         src/runtime/constantpool.cpp
@@ -114,6 +117,7 @@ add_executable(wind_vm
         src/native/java_net_PlainSocketImpl.cpp
         src/runtime/openJdkNative.cpp
         src/native/java_lang_ClassLoader_nativeLibrary.cpp
-        src/ZipFile.cpp)
+        src/native/java_net_SocketInputStream.cpp
+        src/ZipFile.cpp include/native/java_net_InetAddress.hpp src/native/java_net_InetAddress.cpp)
 
 target_link_libraries(wind_vm pthread boost_filesystem boost_system boost_regex dl ffi zip)

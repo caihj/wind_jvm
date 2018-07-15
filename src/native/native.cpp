@@ -6,6 +6,9 @@
  */
 
 #include <native/java_net_PlainSocketImpl.hpp>
+#include <native/java_net_SocketInputStream.hpp>
+#include <native/java_net_SocketOutputStream.hpp>
+#include <native/java_net_InetAddress.hpp>
 #include "wind_jvm.hpp"
 
 #include "native/native.hpp"
@@ -76,6 +79,11 @@ void init_native()		// the same as "registerNatives" method.
 	native_map[L"java/lang/Shutdown"] = java_lang_shutdown_search_method;
 	native_map[L"java/lang/ClassLoader$NativeLibrary"] = java_lang_classLoader_nativeLibrary_search_method;
 	native_map[L"java/net/PlainSocketImpl"] = java_net_PlainSocketImpl_search_method;
+	native_map[L"java/net/SocketInputStream"] = java_net_SocketInputStream_search_method;
+	native_map[L"java/net/SocketOutputStream"] = java_net_SocketOutputStream_search_method;
+    native_map[L"java/net/InetAddress"] = java_net_InetAddress_search_method;
+	native_map[L"java/net/InetAddressImplFactory"] = java_net_InetAddress_search_method;
+    native_map[L"java/net/Inet4Address"] = java_net_InetAddress_search_method;
 }
 
 // find a native method <$signature> in a klass <$klass_name>, return the method in (void *). if didn't find, abort().
