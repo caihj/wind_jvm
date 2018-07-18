@@ -198,6 +198,9 @@ static void socketAccept(list<Oop *> & _stack){
     InstanceOop *_this = (InstanceOop *)_stack.front();	_stack.pop_front();
     InstanceOop *clientsocket = (InstanceOop *)_stack.front();	_stack.pop_front();
 
+    vm_thread *thread = reinterpret_cast<vm_thread *>(_stack.back()); _stack.pop_back();
+
+
     InstanceOop  *fd ;
     _this->get_field_value(L"java/net/SocketImpl:fd:Ljava/io/FileDescriptor;",reinterpret_cast<Oop **>(&fd));
 
@@ -220,21 +223,22 @@ static void socketAccept(list<Oop *> & _stack){
 
         struct sockaddr_in *client_address = reinterpret_cast<sockaddr_in *>(&peer_addr);
 
-        InstanceOop *address;
-        clientsocket->get_field_value(L"java/net/SocketImpl:address:Ljava/net/InetAddress;",reinterpret_cast<Oop **>(&address));
-
-        InstanceOop * holder;
-        address->get_field_value(L"java/net/InetAddress:holder:Ljava/net/InetAddress$InetAddressHolder;", reinterpret_cast<Oop **>(&holder));
-
-        holder->set_field_value(L"java/net/InetAddress$InetAddressHolder:address:I" ,new IntOop(ntohl(client_address->sin_addr.s_addr)));
-        holder->set_field_value(L"java/net/InetAddress$InetAddressHolder:family:I" ,new IntOop(IPv4));
+        auto inetAddress = ((InstanceKlass *)BootStrapClassLoader::get_bootstrap().loadClass(L"java/net/InetAddress"));
 
         char buf[128];
         utf8_to_wstring(inet_ntop(AF_INET,&(client_address->sin_addr.s_addr),buf,sizeof(buf)));
 
         Oop * hostname = java_lang_string::intern_to_oop(utf8_to_wstring(buf));
-        holder->set_field_value(L"java/net/InetAddress$InetAddressHolder:hostName:" STR ,hostname);
-        holder->set_field_value(L"java/net/InetAddress$InetAddressHolder:originalHostName:" STR ,hostname);
+
+        ArrayOop * byteArr = static_cast<ArrayKlass *>(BootStrapClassLoader::get_bootstrap().loadClass(L"[B"))->new_instance(4);
+        (*byteArr)[0] = new IntOop((0x000000ff  &  client_address->sin_addr.s_addr));
+        (*byteArr)[1] = new IntOop((0x0000ff00  &  client_address->sin_addr.s_addr) >> 8);
+        (*byteArr)[2] = new IntOop((0x00ff0000  &  client_address->sin_addr.s_addr) >> 16);
+        (*byteArr)[3] = new IntOop((0xff000000  &  client_address->sin_addr.s_addr) >> 24);
+
+        Oop *innetAddress = thread->add_frame_and_execute(inetAddress->get_this_class_method(L"getByAddress:(" STR "[B)Ljava/net/InetAddress;"), {hostname,byteArr});
+
+        clientsocket->set_field_value(L"java/net/SocketImpl:address:Ljava/net/InetAddress;",innetAddress);
 
     }else{
         //not supported now
